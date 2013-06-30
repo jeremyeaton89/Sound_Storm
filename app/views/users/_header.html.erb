@@ -1,0 +1,22 @@
+<header>
+	<button class="home">Home</button>
+	<a href="#/stream">Stream</a>
+	<a href="#/explore">Explore</a>
+	<span>Search Bar</span>
+	<a href="#">Latest Activity Feed</a>
+	<a href="#">Messages</a>
+	<a href="#" id="user_select">USER SELECT</a>
+	[<div id="user_dropdown" class="hidden">
+		<a href="#/profile">Your Profile</a>
+		<a href="#">Your likes</a>
+		<a href="#">Your Sets</a>
+		<a href="#">Your groups</a>
+		<a href="#">Who to follow</a>
+		<a href="#">Settings</a>
+		<%= button_to "Sign Out", session_url, method: :delete %>
+	</div>]
+	<button id="upload">Upload</button>
+	<span>Volume Control</span>
+	<a href="#">More</a>
+	<hr>
+</header>
