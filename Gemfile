@@ -18,3 +18,4 @@ end
 
 gem 'jquery-rails'
 gem 'backbone-on-rails'
+gem 'bcrypt-ruby'
