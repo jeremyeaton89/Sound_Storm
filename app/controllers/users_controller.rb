@@ -27,6 +27,10 @@ class UsersController < ApplicationController
 	end
 
 	def index
+		respond_to do |format|
+			format.html { render :index }
+			format.json { render json: current_user }
+		end
 	end
 
 	def edit

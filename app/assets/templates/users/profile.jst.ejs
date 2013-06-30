@@ -1,0 +1,19 @@
+<h2>Profile</h2>
+
+<div id="profile_details">
+
+<h3><%= user.escape('username') %></h3><br>
+
+<img 
+	src="http://www.hdi-slc.com/wp-content/uploads/2012/07/blank-profile.jpg"
+	height="65px"
+	width="45px">
+
+# followers
+
+<p><%= user.escape('first_name') %> <%= user.escape('last_name') %></p>
+<a href="#/profile/edit" id="profile_edit">Edit</a>
+	
+</div>
+
+<div id="user_sets"></div>

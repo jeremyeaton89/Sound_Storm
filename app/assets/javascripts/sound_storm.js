@@ -4,7 +4,7 @@ window.SoundStorm = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new SoundStorm.Routers.app_router($("#content"));
+    new SoundStorm.Routers.Router($("#content"));
     Backbone.history.start();
   }
 };
