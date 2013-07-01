@@ -1,7 +1,7 @@
 SoundStorm.Routers.Router = Backbone.Router.extend({
 	initialize: function($rootEl) {
 		this.$rootEl = $rootEl;
-		this.collection = new SoundStorm.Collections.Tracks(); // includes Tracks.currentUserTracks();
+		// this.collection = new SoundStorm.Collections.Tracks(); // includes Tracks.currentUserTracks();
 		// this.children = []; or _([])
 
 	},
@@ -23,7 +23,7 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 		var user = new SoundStorm.Models.User();
 
 		user.fetch({
-			success: function() {
+			success: function(model, response) {
 				var profileCompositeView = new SoundStorm.Views.ProfileCompositeView({
 					model: user
 				});

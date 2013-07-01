@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  play_set_id: 1
+  track_id: 1
+
+two:
+  play_set_id: 1
+  track_id: 1

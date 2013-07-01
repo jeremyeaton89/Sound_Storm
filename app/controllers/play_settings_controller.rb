@@ -1,0 +1,2 @@
+class PlaySettingsController < ApplicationController
+end

@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   validates :city, presence: true, length: { minimum: 2 }
 
   has_many :profile_images
+  has_many :tracks, foreign_key: :owner_id
+  has_many :play_sets, foreign_key: :owner_id
+
 
   def password=(password)
   	self.password_digest = BCrypt::Password.create(password)

@@ -1,10 +1,11 @@
 class Track < ActiveRecord::Base
-  attr_accessible :name, :user_id
+  attr_accessible :name, :owner_id
 
-  belongs_to :user_id
-  belongs_to :play_set
+  belongs_to :owner, class_name: "User"
+  has_many :play_settings
+  has_many :play_sets, through: :play_settings
 
-  validates :name, presence: true
+  validates :name, :owner, presence: true
 
 
 end

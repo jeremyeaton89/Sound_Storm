@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		debugger
+		p "errmmm yea.... thats supposed to be a break point (i.e. the debugger)"
 		if current_user
 			render json: current_user
 		else
@@ -30,7 +32,7 @@ class UsersController < ApplicationController
 	def index
 		respond_to do |format|
 			format.html { render :index }
-			format.json { render json: current_user }
+			format.json { render json: current_user.to_json(include: :tracks) }
 		end
 	end
 
