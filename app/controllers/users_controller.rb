@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_filter :authenticate_user, except: :new
+	respond_to :json
 
 	def new
 		@user = User.new
@@ -37,6 +38,8 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		current_user.update_attributes(params[:user])
+		respond_with current_user
 	end
 
 end

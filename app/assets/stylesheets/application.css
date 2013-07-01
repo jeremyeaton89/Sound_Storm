@@ -15,3 +15,13 @@
 .hidden {
 	display: none;
 }
+
+.left-sidebar, div {
+	border: 1px dashed;
+}
+
+.left-sidebar {
+	width: 25%;
+	border: 1px dashed red;
+}
+

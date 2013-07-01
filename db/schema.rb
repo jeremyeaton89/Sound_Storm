@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130629204305) do
+ActiveRecord::Schema.define(:version => 20130701005314) do
+
+  create_table "play_sets", :force => true do |t|
+    t.integer  "owner_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tracks", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "set_id"
+  end
+
+  add_index "tracks", ["name"], :name => "index_tracks_on_name"
 
   create_table "users", :force => true do |t|
     t.string   "username"
@@ -19,6 +36,13 @@ ActiveRecord::Schema.define(:version => 20130629204305) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "session_token"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "bio"
+    t.string   "city"
+    t.string   "country_code"
   end
+
+  add_index "users", ["username"], :name => "index_users_on_username"
 
 end

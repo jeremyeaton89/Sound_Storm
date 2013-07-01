@@ -1,0 +1,2 @@
+class PlaySetsController < ApplicationController
+end

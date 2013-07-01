@@ -1,17 +1,12 @@
 SoundStorm.Views.ProfileView = Backbone.View.extend({
 
-	initialize: function(user) {
-		console.log(user);
-		this.model = user;
-	},
-
+	id: "profileView",
+	tagName: "section",
+	className: "left-sidebar",
 	template: JST['users/profile'],
 
 	render: function() {
-		var that = this;
-								console.log(this.model)
-
-		var content = this.template({ user: that.model });
+		var content = this.template({ user: this.model });
 		this.$el.html(content);
 		return this;
 	}

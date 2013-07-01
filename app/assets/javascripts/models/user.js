@@ -1,3 +1,9 @@
 SoundStorm.Models.User = Backbone.Model.extend({
-	url: "/users"
+	url: function() {
+		if (this.id) {
+			return "/users/" + this.id;
+		} else {
+			return "/users";
+		}
+	}
 });
