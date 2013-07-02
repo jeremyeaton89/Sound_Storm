@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
   validates :password_digest, presence: true, length: { minimum: 6 }
-  validates :city, presence: true, length: { minimum: 2 }
+  # validates :city, presence: true, length: { minimum: 2 }
 
   has_many :profile_images
   has_many :tracks, foreign_key: :owner_id
@@ -19,6 +19,18 @@ class User < ActiveRecord::Base
 
   def verify_password(password)
   	BCrypt::Password.new(self.password_digest) == password
+  end
+
+  def as_json(options = {})
+    super(:except => [
+      :password_digest, 
+      :session_token
+    ], 
+    :include => [
+      :tracks,
+      :play_sets => { :include => :tracks }
+      #, :reposts
+    ])
   end
 
 end

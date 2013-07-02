@@ -1,6 +1,7 @@
 SoundStorm.Models.User = Backbone.Model.extend({
 	initialize: function() {
 		this.tracks = new SoundStorm.Collections.Tracks();
+		this.playSets= new SoundStorm.Collections.PlaySets();
 	},
 
 	url: function() {
@@ -12,10 +13,8 @@ SoundStorm.Models.User = Backbone.Model.extend({
 	},
 
 	parse: function(response) {
-		var that = this;
-		
-		_(response.tracks).each(function(trackAttrs) {
-			that.tracks.add(new SoundStorm.Models.Track(trackAttrs));
-		});
+		if (response && response.tracks) this.tracks.set(response.tracks);
+		if (response && response.play_sets) this.playSets.set(response.play_sets);
+		return response;
 	}
 });

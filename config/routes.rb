@@ -1,7 +1,10 @@
 SoundStorm::Application.routes.draw do
   root to: "root#root"
-  resource :profile
-  resources :users
+  resources :play_sets
+  resources :users do
+  	# resources :tracks
+  end
+  resources :tracks
   resource :session
 
 end

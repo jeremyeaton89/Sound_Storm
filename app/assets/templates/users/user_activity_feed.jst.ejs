@@ -1,0 +1,18 @@
+<h2>User Activity</h2>
+
+<% _(userAssets).each(function(asset) { %>
+
+	<% if (asset instanceof SoundStorm.Models.Track) { %>
+
+		<%= JST['widgets/track']({track: asset}) %>
+
+	<% } else if (asset instanceof SoundStorm.Models.PlaySet ){ %>
+
+		<%= JST['widgets/play_set']({playSet: asset}) %>
+
+	<% } else { %>
+
+		<%= JST['widgets/repost']({repost: asset}) %>
+
+	<% } %>
+<% }); %>

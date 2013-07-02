@@ -1,0 +1,13 @@
+<div class="profile-widget play-set" data-id="<%= playSet.id %>">
+	<p><%= playSet.escape("name") %></p>
+	<p>Includes: <% if (playSet.get("tracks").length == 0) { %> 
+			<%= "Nothing!" %>
+		<% } %>
+		
+		<% _(playSet.get("tracks")).each(function(track) { %>
+		<%= track.name + " " %>
+		<% }); %>
+	</p>
+	<button>Play</button>
+	<button class="remove">Remove</button>
+</div>

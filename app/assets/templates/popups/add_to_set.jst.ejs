@@ -1,0 +1,17 @@
+<div class="add-to-set-popup popup">
+	<ul>
+	<% SoundStorm.currentUser.playSets.each(function(set) { %>
+		<li>
+			<%= set.escape('name') %>
+			<button data-play-set-id="<%= set.id %>">Add</button>
+		</li>
+	<% }); %>
+	<form>
+		<label>Name your set: <input type="text" name="name"></label>
+		<input type="hidden" name="owner_id" value="<%= SoundStorm.currentUser.id %>">
+		<input type="submit" value="Create">
+	</form>
+	</ul>
+
+	<button class="cancel">Cancel</button>
+</div>

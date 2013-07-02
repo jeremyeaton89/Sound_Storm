@@ -2,7 +2,7 @@ class TracksController < ApplicationController
 	respond_to :json
 
 	def create
-		respond_with Track.create(params)
+		respond_with Track.create(params[:track])
 	end
 
 	def destroy

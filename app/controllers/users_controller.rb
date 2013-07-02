@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :authenticate_user, except: :new
+	# before_filter :authenticate_user, except: :new
 	respond_to :json
 
 	def new
@@ -10,8 +10,8 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 
 		if @user.save
-			# login(@user)
-			p "WHATHATHWATHAS DFASDHF ASDFH SDAHF ASDHF SDAFH"
+			login(@user)
+
 			redirect_to users_url
 		else
 			flash[:errors] = @user.errors.full_messages
@@ -20,8 +20,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		debugger
-		p "errmmm yea.... thats supposed to be a break point (i.e. the debugger)"
 		if current_user
 			render json: current_user
 		else
@@ -32,7 +30,7 @@ class UsersController < ApplicationController
 	def index
 		respond_to do |format|
 			format.html { render :index }
-			format.json { render json: current_user.to_json(include: :tracks) }
+			format.json { render json: current_user }
 		end
 	end
 

@@ -1,6 +1,5 @@
 SoundStorm.Views.ProfileEditView = Backbone.View.extend({
 
-
 	events: {
 		"click button#profile_save": "submit"
 	},
@@ -18,7 +17,7 @@ SoundStorm.Views.ProfileEditView = Backbone.View.extend({
 		event.preventDefault();
 		var attrs = $(event.target.form).serializeJSON();
 		this.model.set(attrs);
-		this.model.save(attrs, {
+		this.model.save({}, {
 			success: function() {
 				Backbone.history.navigate("#/profile", { trigger: true });
 			},

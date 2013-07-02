@@ -1,60 +1,36 @@
 SoundStorm.Routers.Router = Backbone.Router.extend({
-	initialize: function($rootEl) {
+	initialize: function($rootEl, user) {
 		this.$rootEl = $rootEl;
-		// this.collection = new SoundStorm.Collections.Tracks(); // includes Tracks.currentUserTracks();
-		// this.children = []; or _([])
-
+		this.user = user;
 	},
 
 	routes: {
 		"": "index",
+		"upload": "showUpload",
 		"profile": "showProfileComposite",
 		"profile/edit": "editProfile",
 	},
 
 	index: function() {
-
 		var dashboardView = new SoundStorm.Views.DashboardView();
 		this.$rootEl.html(dashboardView.render().$el);
 	},
 
-	showProfileComposite: function() {
-		var that = this;
-		var user = new SoundStorm.Models.User();
-
-		user.fetch({
-			success: function(model, response) {
-				var profileCompositeView = new SoundStorm.Views.ProfileCompositeView({
-					model: user
-				});
-				that.$rootEl.html(profileCompositeView.render().$el);
-				// that.currentView = 
-			}
-		});
-		
+	showUpload: function() {
+		var uploadView = new SoundStorm.Views.UploadView();
+		this.$rootEl.html(uploadView.render().$el);
 	},
 
-	showProfile: function() {
-		var that = this;
-		var user = new SoundStorm.Models.User();
-
-		user.fetch({
-			success: function() {
-				var profileView = new SoundStorm.Views.ProfileView(user);
-				that.$rootEl.html(profileView.render().$el);
-			}
+	showProfileComposite: function() {
+		// debugger
+		var profileCompositeView = new SoundStorm.Views.ProfileCompositeView({
+			model: this.user
 		});
+		this.$rootEl.html(profileCompositeView.render().$el);
 	},
 
 	editProfile: function() {
-		var that = this;
-		var user = new SoundStorm.Models.User();
-
-		user.fetch({
-			success: function() {
-				var profileEditView = new SoundStorm.Views.ProfileEditView({ model: user });
-				that.$rootEl.html(profileEditView.render().$el);
-			}
-		});
+		var profileEditView = new SoundStorm.Views.ProfileEditView({ model: this.user });
+		this.$rootEl.html(profileEditView.render().$el);
 	}
 });

@@ -1,0 +1,11 @@
+<h2> Post and share your sound with the world </h2>
+
+<form>
+	<label for="track_name">Name:</label>
+	<input type="text" name="track[name]" id="track_name">
+
+	<input type="hidden" name="track[owner_id]" value="<%= SoundStorm.currentUser.id %>">
+	<input type="submit" value="Upload">
+</form>
+
+<p> TODO: handle file upload. on success, form: name, tags, description, public/private </p>

@@ -16,12 +16,47 @@
 	display: none;
 }
 
-.left-sidebar, div {
+.left-column, div {
 	border: 1px dashed;
 }
 
-.left-sidebar {
-	width: 25%;
+.left-column {
+	width: 200px;
 	border: 1px dashed red;
+	float: left;
+	margin-top: 24px;
 }
 
+.middle-column {
+	width: 35%;
+	border: 1px dashed orange;
+	float: left;
+	margin: 24px 24px 24px 24px;
+}
+
+.right-column {
+	width: 25%;
+}
+
+.profile-widget {
+	border: 2px solid green;
+}
+
+.track {
+	background: gold;
+}
+
+.play-set {
+	background: orange;
+}
+
+.repost {
+	background: yellow;
+}
+
+.add-to-set-popup {
+	z-index: -1;
+	/*height: 50px;
+	width: 60px;*/
+	background: gray;
+}

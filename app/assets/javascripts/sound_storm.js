@@ -4,8 +4,15 @@ window.SoundStorm = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new SoundStorm.Routers.Router($("#content"));
-    Backbone.history.start();
+    new SoundStorm.Models.User().fetch({
+    	success: function(response, data) {
+        SoundStorm.currentUser = response; // for debugger
+    		new SoundStorm.Routers.Router(
+    			$("#content"), response
+    		);
+		    Backbone.history.start();
+    	}
+    });
   }
 };
 
