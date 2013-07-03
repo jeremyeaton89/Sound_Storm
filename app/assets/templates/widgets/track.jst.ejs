@@ -1,7 +1,9 @@
 <div class="profile-widget track" data-track-id="<%= track.id %>">
 	<p><%= track.escape("name") %></p>
 	<button>Play</button>
+	<button data-id="<%= track.id %>" class="add-to-set">Add to Set</button>
+	<a href="#/tracks/<%= track.id %>/edit">Edit</a>
 	<button class="remove">Remove</button>
 
-	<button data-id="<%= track.id %>" class="add-to-set">Add to Set</button>
+	
 </div>

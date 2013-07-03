@@ -6,9 +6,13 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 
 	routes: {
 		"": "index",
-		"upload": "showUpload",
-		"profile": "showProfileComposite",
+		"upload": "upload",
+		"profile": "profileComposite",
 		"profile/edit": "editProfile",
+		"tracks/:id/edit": "editTrack",
+		"tracks/:id": "showTrack",
+		"play_sets/:id/edit": "editPlaySet",
+		"play_sets/:id": "showPlaySet"
 	},
 
 	index: function() {
@@ -16,13 +20,12 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 		this.$rootEl.html(dashboardView.render().$el);
 	},
 
-	showUpload: function() {
+	upload: function() {
 		var uploadView = new SoundStorm.Views.UploadView();
 		this.$rootEl.html(uploadView.render().$el);
 	},
 
-	showProfileComposite: function() {
-		// debugger
+	profileComposite: function() {
 		var profileCompositeView = new SoundStorm.Views.ProfileCompositeView({
 			model: this.user
 		});
@@ -32,5 +35,12 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 	editProfile: function() {
 		var profileEditView = new SoundStorm.Views.ProfileEditView({ model: this.user });
 		this.$rootEl.html(profileEditView.render().$el);
+	},
+
+	editTrack: function(id) {
+		var trackEditView = new SoundStorm.Views.TrackEditView({ 
+			model: SoundStorm.currentUser.tracks.get(id)
+		});
+		this.$rootEl.html(trackEditView.render().$el);
 	}
 });
