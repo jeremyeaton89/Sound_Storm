@@ -26,10 +26,15 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 	},
 
 	profileComposite: function() {
-		var profileCompositeView = new SoundStorm.Views.ProfileCompositeView({
-			model: this.user
+		var that = this;
+		this.user.fetch({
+			success: function(model, response) {
+			var profileCompositeView = new SoundStorm.Views.ProfileCompositeView({
+				model: model
+			});
+			that.$rootEl.html(profileCompositeView.render().$el);
+			}
 		});
-		this.$rootEl.html(profileCompositeView.render().$el);
 	},
 
 	editProfile: function() {

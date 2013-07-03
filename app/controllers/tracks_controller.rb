@@ -16,4 +16,8 @@ class TracksController < ApplicationController
 	def show
 		respond_with Track.find(params[:id])
 	end
+
+	def update
+		respond_with Track.find(params[:id]).update_attributes(params[:track])
+	end
 end

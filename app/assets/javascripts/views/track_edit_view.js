@@ -2,6 +2,10 @@ SoundStorm.Views.TrackEditView = Backbone.View.extend({
 
 	template: JST['tracks/edit'],
 
+	events: {
+		"click input[type='submit']": "submit"
+	},
+
 	render: function() {
 		var content = this.template({ track: this.model });
 		this.$el.html(content);
@@ -12,8 +16,8 @@ SoundStorm.Views.TrackEditView = Backbone.View.extend({
 		var that = this;
 		event.preventDefault();
 		var attrs = $(event.target.form).serializeJSON();
-		this.model.set(attrs);
-		this.model.save({}, {
+		// this.model.set(attrs);
+		this.model.save(attrs, {
 			success: function() {
 				Backbone.history.navigate("#/profile", { trigger: true });
 			},
