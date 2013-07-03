@@ -12,7 +12,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 	events: {
 		"click button.add-to-set": "popSetForm",
 		"click button.cancel": "removePopup",
-		"click input[type='submit']": "createSet",
+		"click input[type='submit']": "createPlaySet",
 		"click .track button.remove": "removeTrack",
 		"click .play-set button.remove": "removePlaySet",
 	},
@@ -27,7 +27,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 		$(event.target).parent(".popup").remove();
 	},
 
-	createSet: function(event) {
+	createPlaySet: function(event) {
 		event.preventDefault();
 		var attrs = $(event.target.form).serializeJSON();
 		SoundStorm.currentUser.playSets.create(attrs);
@@ -36,7 +36,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 
 	removeTrack: function(event) {
 		var that = this;
-		var trackId = $(event.target).parent(".track").attr("data-id");
+		var trackId = $(event.target).parent(".track").attr("data-track-id");
 		SoundStorm.currentUser.tracks.get(trackId).destroy({ 
 			success: function(model, response) {
 				console.log(model.get('name') + " deletion success!");
@@ -46,7 +46,14 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 	},
 
 	removePlaySet: function(event) {
-
+		var that = this;
+		var playSetId = $(event.target).parent(".play-set").attr("data-play-set-id");
+		SoundStorm.currentUser.playSets.get(playSetId).destroy({ 
+			success: function(model, response) {
+				console.log(model.get('name') + " deletion success!");
+				$(event.target).parent(".play-set").remove();
+			}
+		});
 	},
 
 	render: function() {

@@ -10,7 +10,7 @@ class PlaySetsController < ApplicationController
 	end
 
 	def destroy
-
+		respond_with PlaySet.find(params[:id]).destroy
 	end
 
 	def create
