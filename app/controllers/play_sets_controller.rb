@@ -6,7 +6,7 @@ class PlaySetsController < ApplicationController
 	end
 
 	def update
-
+		respond_with PlaySet.find(params[:id]).update_attributes(params[:play_set])
 	end
 
 	def destroy

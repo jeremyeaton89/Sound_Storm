@@ -47,5 +47,12 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 			model: SoundStorm.currentUser.tracks.get(id)
 		});
 		this.$rootEl.html(trackEditView.render().$el);
+	},
+
+	editPlaySet: function(id) {
+		var playSetEditVew = new SoundStorm.Views.PlaySetEditView({
+			model: SoundStorm.currentUser.playSets.get(id)
+		});
+		this.$rootEl.html(playSetEditVew.render().$el);
 	}
 });

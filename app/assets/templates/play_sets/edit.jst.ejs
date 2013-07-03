@@ -1,0 +1,21 @@
+<h2>Play Set Edit</h2>
+
+<form>
+	<label for="play_set_name">Name:</label>
+	<input id="play_set_name" type="text" name="play_set[name]" value="<%= playSet.escape('name') %>">
+
+	<h3>Tracks</h3>
+	<ul>
+		<% playSet.tracks.each(function(track) { %>
+
+			<li>
+				<%= track.escape('name') %>
+				
+				<button class="remove">Remove</button>
+			</li>
+
+		<% }); %>
+	</ul>
+	<button class="close">Close</button>
+	<button class="submit">Save</button>
+</form>

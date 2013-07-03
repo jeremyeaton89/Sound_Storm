@@ -91,6 +91,19 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 	removeSong: function(event) {
 		$(event.target).addClass("hidden");
 		$(event.target).siblings("button").removeClass("hidden");
+		var track = SoundStorm.currentUser.tracks.get($(event.target).attr("data-track-id"));
+		var playSet = SoundStorm.currentUser.playSets.get($(event.target).attr("data-play-set-id"));
+		$.ajax({
+			url: "play_settings/1.json", //hackey?
+			type: "DELETE",
+			data: { 
+				track_id: track.id,
+				play_set_id: playSet.id
+			},
+			success: function(response) {
+				playSet.tracks.remove(track);
+			}
+		});	
 	},
 
 	render: function() {
