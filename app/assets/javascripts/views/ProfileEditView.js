@@ -16,6 +16,7 @@ SoundStorm.Views.ProfileEditView = Backbone.View.extend({
 		var that = this;
 		event.preventDefault();
 		var attrs = $(event.target.form).serializeJSON();
+		// debugger
 		this.model.set(attrs);
 		this.model.save({}, {
 			success: function() {

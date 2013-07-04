@@ -7,7 +7,6 @@ SoundStorm.Views.ProfileCompositeView = Backbone.View.extend({
 		// this.listenTo()
 	},
 	render: function() {
-
 		this.$el.html(this.template());
 	
 		// render Profile

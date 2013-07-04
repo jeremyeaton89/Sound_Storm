@@ -1,6 +1,8 @@
 <h2>Edit Profile</h2>
 
-<form id="edit_profile_form">
+<form id="edit_profile_form" enctype="multipart/form-data">
+	<!-- <input type="hidden" name="authenticity_token" value=""> -->
+
 	<label for="user_username">Username</label>
 	<input 
 		id="user_username" 
@@ -24,6 +26,9 @@
 		type="text" 
 		name="user[first_name]" 
 		value="<%= user.escape('first_name') %>"><br>
+	
+	<!-- IMAGE UPLOAD -->
+	
 
 	<label for="user_last_name">Last Name</label><br>
 	<input 

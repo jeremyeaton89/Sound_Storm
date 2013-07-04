@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701054607) do
+ActiveRecord::Schema.define(:version => 20130704011024) do
 
   create_table "play_sets", :force => true do |t|
     t.integer  "owner_id"
@@ -30,8 +30,12 @@ ActiveRecord::Schema.define(:version => 20130701054607) do
   create_table "tracks", :force => true do |t|
     t.integer  "owner_id"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
   end
 
   add_index "tracks", ["name"], :name => "index_tracks_on_name"
@@ -39,14 +43,19 @@ ActiveRecord::Schema.define(:version => 20130701054607) do
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "password_digest"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.string   "session_token"
     t.string   "first_name"
     t.string   "last_name"
     t.text     "bio"
     t.string   "city"
     t.string   "country_code"
+    t.string   "profile_picture_file_name"
+    t.string   "profile_picture_content_type"
+    t.integer  "profile_picture_file_size"
+    t.datetime "profile_picture_updated_at"
+    t.string   "profile_picture_url"
   end
 
   add_index "users", ["username"], :name => "index_users_on_username"
