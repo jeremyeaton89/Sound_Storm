@@ -1,0 +1,12 @@
+<% if (SoundStorm.currentUser.likes.hasTrack(track.id)) { %>
+
+	<button class="like hidden">Like</button>
+	<button class="unlike">Unlike</button>
+
+<% } else { %>
+
+	<button class="like">Like</button>
+	<button class="unlike hidden">Unlike</button>
+	
+<% } %>
+

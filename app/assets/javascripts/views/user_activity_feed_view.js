@@ -109,7 +109,34 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 	},
 
 	createLike: function(event) {
-		debugger
+		// SoundStorm.currentUser.likes.create({ ... }) => undefined is not a function. wtf
+
+		$.ajax({
+			url: "/likes",
+			type: "post",
+			data: { like: {
+				track_id: $(event.target).closest("div.track").attr("data-track-id"), 
+				user_id: SoundStorm.currentUser.id
+			}},
+			success: function(response) {
+				SoundStorm.currentUser.likes.add(new SoundStorm.Models.Like(response));
+				debugger
+				$(event.target).addClass("hidden");
+				$(event.target).siblings("button.unlike").removeClass("hidden");
+			}
+		});
+	},
+
+	removeLike: function(event) {
+		SoundStorm.currentUser.likes.findWhere({
+			user_id: SoundStorm.currentUser.id,
+			track_id: +($(event.target).closest("div.track").attr("data-track-id"))
+		}).destroy({
+			success: function(response) {
+				$(event.target).addClass("hidden");
+				$(event.target).siblings("button.like").removeClass("hidden");		
+			}
+		});
 	},
 
 	render: function() {

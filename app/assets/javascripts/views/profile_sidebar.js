@@ -5,6 +5,13 @@ SoundStorm.Views.ProfileSidebar = Backbone.View.extend({
 	className: "right-column",
 	template: JST['users/profile_sidebar'],
 
+	initialize: function() {
+		this.listenTo(SoundStorm.currentUser.likes, "add", this.render);
+		this.listenTo(SoundStorm.currentUser.likes, "remove", this.render);
+		this.listenTo(SoundStorm.currentUser.playSets, "add", this.render);
+		this.listenTo(SoundStorm.currentUser.playSets, "remove", this.render);
+	},
+
 	render: function() {
 		var content = this.template({ userAssets: this.userAssets });
 

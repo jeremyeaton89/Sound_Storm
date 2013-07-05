@@ -4,15 +4,16 @@
 
 	<% if (asset instanceof SoundStorm.Models.Track) { %>
 
-		<%= JST['widgets/track']({track: asset}) %>
+		<%= JST['tracks/track']({track: asset}) %>
 
 	<% } else if (asset instanceof SoundStorm.Models.PlaySet ){ %>
 
-		<%= JST['widgets/play_set']({playSet: asset}) %>
+		<%= JST['play_sets/play_set']({playSet: asset}) %>
 
 	<% } else { %>
 
-		<%= JST['widgets/repost']({repost: asset}) %>
+		<%= JST['reposts/repost']({repost: asset}) %>
 
 	<% } %>
+	
 <% }); %>

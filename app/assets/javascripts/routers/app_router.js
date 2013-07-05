@@ -11,8 +11,11 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 		"profile/edit": "editProfile",
 		"tracks/:id/edit": "editTrack",
 		"tracks/:id": "showTrack",
+		"tracks": "showTracks",
 		"play_sets/:id/edit": "editPlaySet",
-		"play_sets/:id": "showPlaySet"
+		"play_sets/:id": "showPlaySet",
+		"play_sets": "showPlaySets",
+		"likes": "showLikes",
 	},
 
 	index: function() {

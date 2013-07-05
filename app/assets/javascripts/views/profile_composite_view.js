@@ -30,7 +30,8 @@ SoundStorm.Views.ProfileCompositeView = Backbone.View.extend({
 
 		this.$el.append(userActivityFeedView.render().$el);
 		// render Sidebar
-
+		var profileSidebarView = new SoundStorm.Views.ProfileSidebar();
+		this.$el.append(profileSidebarView.render().$el);
 
 		return this;
 	}

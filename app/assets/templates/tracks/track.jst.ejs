@@ -2,11 +2,13 @@
 	<p><%= track.escape("name") %></p>
 	<audio src="<%= track.escape("audio_url") %>" controls="controls"></audio>
 
-	<button class="like">Like</button>
-	<button class="unlike hidden">Unlike</button>
+
+	<%= JST['tracks/_like_buttons']({ track: track }) %>
+	
 	<button data-track-id="<%= track.id %>" class="add-to-set">Add to Set</button>
 	<a href="#/tracks/<%= track.id %>/edit">Edit</a>
 	<button class="remove">Remove</button>
 
 	
 </div>
+

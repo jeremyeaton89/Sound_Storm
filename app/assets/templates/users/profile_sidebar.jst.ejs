@@ -1,0 +1,15 @@
+<div id="statistics"></div>
+
+<div id="following"></div>
+
+<div id="play_sets">
+	<% var setCount = SoundStorm.currentUser.playSets.length %>
+	<span class="sidebar-data"><%= setCount %> <%= (setCount == 1 ? "set" : "sets") %></span>
+	<a href="#/play_sets">View all</a>
+</div>
+
+<div id="likes">
+	<%= JST['users/_sidebar_like']() %>
+</div>
+
+<div id="comments"></div>

@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
   # has_many :profile_images
   has_many :tracks, foreign_key: :owner_id
   has_many :play_sets, foreign_key: :owner_id
-  has_many :linkings
-  has_many :likes, through: :likings
+  has_many :likes
+  has_many :liked_tracks, through: :likes, source: :track
   
   has_attached_file :profile_picture, 
     :storage => :s3,
@@ -41,9 +41,9 @@ class User < ActiveRecord::Base
     ], 
     :methods => :profile_picture_url,
     :include => [
-      :tracks => { :methods => :audio_url },
-      :play_sets => { :include => :tracks }
-      #, :reposts
+      { :likes => { :include => :track }},
+      { :play_sets => { :include => :tracks }},
+      { :tracks => { :methods => :audio_url }}
     ])
   end
 

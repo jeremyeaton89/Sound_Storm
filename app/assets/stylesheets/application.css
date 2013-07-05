@@ -36,6 +36,7 @@
 
 .right-column {
 	width: 25%;
+	float: left;
 }
 
 .profile-widget {
