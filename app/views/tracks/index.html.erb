@@ -1,0 +1,14 @@
+<h1>All Tracks</h1>
+
+<ul>
+<% Track.all.each do |track| %>
+
+	<li>
+		<%= track.name %>
+		<audio src="<%= track.audio.url %>" controls="controls"></audio>
+		<audio src="<%= track.audio_url %>" controls="controls"></audio>
+		<hr>
+	</li>
+
+<% end %>
+</ul>

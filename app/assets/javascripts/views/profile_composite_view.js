@@ -23,7 +23,6 @@ SoundStorm.Views.ProfileCompositeView = Backbone.View.extend({
 				userAssets.push(model);
 			});
 		});
-
 		userAssets.sort(function(prevAsset, currAsset) {
 			return prevAsset.get("created_at") < currAsset.get("created_at"); 
 		});

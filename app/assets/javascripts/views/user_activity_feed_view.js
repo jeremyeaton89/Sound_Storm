@@ -18,7 +18,9 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 		"click .track button.remove": "removeTrack",
 		"click .play-set button.remove": "removePlaySet",
 		"click button.add-song-to-play-set": "addSong",
-		"click button.remove-song-from-play-set": "removeSong"
+		"click button.remove-song-from-play-set": "removeSong",
+		"click button.like": "createLike",
+		"click button.unlike": "removeLike",
 	},
 
 	popSetForm: function(event) {
@@ -106,11 +108,12 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 		});	
 	},
 
+	createLike: function(event) {
+		debugger
+	},
+
 	render: function() {
-
-		console.log("USER ACTIVITY RENDER")
 		var content = this.template({ userAssets: this.userAssets });
-
 		this.$el.html(content);
 		return this;
 	}

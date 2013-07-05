@@ -1,8 +1,14 @@
 class TracksController < ApplicationController
 	respond_to :json
-
+	
 	def create
-		respond_with Track.create(params[:track])
+		# respond_with Track.create(params[:track])
+		track = Track.create(params[:track])
+
+		respond_to do |f|
+			f.html { render :index }
+			f.json { render :json => track }
+		end
 	end
 
 	def destroy
@@ -10,7 +16,13 @@ class TracksController < ApplicationController
 	end
 
 	def index
-		respond_with Track.all
+		# respond_with Track.all
+		@tracks = Track.all
+		p "HERE ARE THE FRIGGIN TRACKS!!! #{@tracks}"
+		respond_to do |f|
+			f.html { render :index }
+			f.json { render @tracks }
+		end
 	end
 
 	def show
@@ -19,5 +31,9 @@ class TracksController < ApplicationController
 
 	def update
 		respond_with Track.find(params[:id]).update_attributes(params[:track])
+	end
+
+	def new
+		@track = Track.new
 	end
 end

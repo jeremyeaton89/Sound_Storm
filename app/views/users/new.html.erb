@@ -12,6 +12,11 @@
 
 </form>
 
-<audio src="/My Song 2.m4a" autoplay="true">
+<audio src="/My Song 2.m4a" controls="controls" type="audio/wav">
 	
 </audio>
+
+<form action="/tracks" method="post" enctype="multipart/form-data">
+	<input id="track_audio" name="track[audio]" type="file">
+	<input type="submit" value="submit">
+</form>

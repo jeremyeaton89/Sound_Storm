@@ -1,0 +1,13 @@
+<h1>Add Track</h1>
+
+<% form_for @track do |f| %>
+	<% f.file_field :track %>
+<% end %>
+
+<form action="/tracks" method="post" enctype="multipart/form-data">
+	Name
+	<input type="text" name="track[name">
+	<input id="user_profile_field" name="track[audio]" type="file">
+	<input type="hidden" name="track[owner_id]" value="<%= current_user ? current_user.id : '5'%>">
+	<input type="submit">
+</form>

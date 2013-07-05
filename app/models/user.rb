@@ -11,12 +11,16 @@ class User < ActiveRecord::Base
   # has_many :profile_images
   has_many :tracks, foreign_key: :owner_id
   has_many :play_sets, foreign_key: :owner_id
-  has_attached_file :profile_picture, :styles => {
-    :big => "600x600>",
-    :small => "50x50#"
-  }, :s3_host_name => "s3-us-west-2.amazonaws.com" 
-
-  before_save :set_profile_picture_url
+  has_many :linkings
+  has_many :likes, through: :likings
+  
+  has_attached_file :profile_picture, 
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => "images-development", #["images-development", "tracks-development"],
+      :access_key_id => "AKIAIFLJSXXQSQBKJVMQ",
+      :secret_access_key => "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"
+    }, :s3_host_name => "s3-us-west-2.amazonaws.com" 
 
   def password=(password)
   	self.password_digest = BCrypt::Password.create(password)
@@ -26,22 +30,21 @@ class User < ActiveRecord::Base
   	BCrypt::Password.new(self.password_digest) == password
   end
 
+  def profile_picture_url
+    self.profile_picture.url
+  end
+
   def as_json(options = {})
     super(:except => [
       :password_digest, 
       :session_token
     ], 
+    :methods => :profile_picture_url,
     :include => [
-      :tracks,
+      :tracks => { :methods => :audio_url },
       :play_sets => { :include => :tracks }
       #, :reposts
     ])
-  end
-
-  private
-
-  def set_profile_picture_url
-    self.profile_picture_url = self.profile_picture.url
   end
 
 end

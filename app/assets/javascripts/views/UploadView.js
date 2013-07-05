@@ -6,7 +6,7 @@ SoundStorm.Views.UploadView = Backbone.View.extend({
 	},
 
 	events: {
-		"click input[type='submit']": "createTrack",
+		"click button.submit": "createTrack",
 	},
 
 	template: JST['upload'],
