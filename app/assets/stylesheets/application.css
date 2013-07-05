@@ -36,7 +36,10 @@
 
 .right-column {
 	width: 25%;
+	position: relative;
+	left: 75px;
 	float: left;
+	margin: 24px;
 }
 
 .profile-widget {
@@ -60,4 +63,13 @@
 	/*height: 50px;
 	width: 60px;*/
 	background: gray;
+}
+
+div#play_sets {
+	background: #FFCC66;
+}
+
+div#likes {
+	background: pink;
+	border: 2px solid green;
 }

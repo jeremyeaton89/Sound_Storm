@@ -6,4 +6,10 @@ class Like < ActiveRecord::Base
 
   validates :track, :user, presence: true
   validates_uniqueness_of :user_id, scope: :track_id
+
+  def as_json(options = {}) 
+  	super(:include => :track)
+  end
+
 end
+

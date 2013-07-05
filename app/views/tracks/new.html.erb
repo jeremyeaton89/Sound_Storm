@@ -5,6 +5,7 @@
 <% end %>
 
 <form action="/tracks" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 	Name
 	<input type="text" name="track[name">
 	<input id="user_profile_field" name="track[audio]" type="file">

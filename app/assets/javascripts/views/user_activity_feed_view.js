@@ -53,10 +53,18 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 		event.preventDefault();
 		var that = this;
 		var trackId = $(event.target).parent(".track").attr("data-track-id");
+
 		SoundStorm.currentUser.tracks.get(trackId).destroy({ 
 			success: function(model, response) {
 				console.log(model.get('name') + " deletion success!");
 				$(event.target).parent(".track").remove();
+				if (SoundStorm.currentUser.likes.hasTrack(trackId)) {
+					var like = SoundStorm.currentUser.likes.findWhere({
+					user_id: SoundStorm.currentUser.id,
+					track_id: +trackId
+					});
+					SoundStorm.currentUser.likes.remove(like);
+				}
 			}
 		});
 	},
@@ -71,11 +79,11 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 			}
 		});
 	},
-
+	// add track to set
 	addSong: function(event) {
 		$(event.target).addClass("hidden");
 		$(event.target).siblings("button").removeClass("hidden");
-		var track = SoundStorm.currentUser.tracks.get($(event.target).attr("data-track-id"));
+		var track = SoundStorm.currentUser.tracks.get($(event.target).closest(".popup").attr("data-track-id"));
 		var playSet = SoundStorm.currentUser.playSets.get($(event.target).attr("data-play-set-id"));
 		$.ajax({
 			url: "play_settings.json",
@@ -89,7 +97,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 			}
 		});	
 	},
-
+	// remove track from set
 	removeSong: function(event) {
 		$(event.target).addClass("hidden");
 		$(event.target).siblings("button").removeClass("hidden");
@@ -120,7 +128,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 			}},
 			success: function(response) {
 				SoundStorm.currentUser.likes.add(new SoundStorm.Models.Like(response));
-				debugger
+
 				$(event.target).addClass("hidden");
 				$(event.target).siblings("button.unlike").removeClass("hidden");
 			}

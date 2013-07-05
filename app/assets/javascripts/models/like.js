@@ -4,8 +4,8 @@ SoundStorm.Models.Like = Backbone.Model.extend({
 		this.track = new SoundStorm.Models.Track();
 	},
 
-	parse: function(response) {
-		debugger
-	}
+	// parse: function(response) {
+	// 	debugger
+	// }
 
 });

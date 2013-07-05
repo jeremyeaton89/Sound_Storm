@@ -4,7 +4,7 @@ class Track < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
   has_many :play_settings
   has_many :play_sets, through: :play_settings
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :likers, through: :likes, source: :user
 
   has_attached_file :audio, 

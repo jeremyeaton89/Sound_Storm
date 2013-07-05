@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	# before_filter :authenticate_user, except: :new
+	before_filter :authenticate_user, except: :new
 	respond_to :json
 
 	def new

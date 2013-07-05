@@ -1,4 +1,9 @@
 <li>
 	<%= set.escape('name') %>
-	<button data-play-set-id="<%= set.id %>">Add</button>
+	<button 
+		class="add-song-to-play-set" 
+		data-play-set-id="<%= set.id %>">Add</button>
+	<button 
+		class="remove-song-from-play-set hidden" 
+		data-play-set-id="<%= set.id %>">Remove</button>
 </li>

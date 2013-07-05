@@ -6,7 +6,7 @@ SoundStorm.Collections.Likes = Backbone.Collection.extend({
 		var hasIt = false;
 
 		this.each(function(like) {
-			if (like.get("track_id") === trackId) 
+			if (like.get("track_id") == trackId) 
 				hasIt = true;
 		});
 		return hasIt;

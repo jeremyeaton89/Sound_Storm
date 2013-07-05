@@ -2,7 +2,7 @@ class LikesController < ApplicationController
 	respond_to :json
 
 	def create
-		respond_with Like.create(params[:like]).to_json(:include => :track)
+		respond_with Like.create(params[:like])
 	end
 
 	def destroy

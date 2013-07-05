@@ -1,15 +1,13 @@
-<div class="add-to-set-popup popup">
+<div class="add-to-set-popup popup" data-track-id="<%= trackId %>">
 	<ul>
 	<% SoundStorm.currentUser.playSets.each(function(set) { %>
 		<li>
 			<%= set.escape('name') %>
 			<button 
 				class="add-song-to-play-set" 
-				data-track-id="<%= trackId %>" 
 				data-play-set-id="<%= set.id %>">Add</button>
 			<button 
 				class="remove-song-from-play-set hidden" 
-				data-track-id="<%= trackId %>" 
 				data-play-set-id="<%= set.id %>">Remove</button>
 		</li>
 	<% }); %>

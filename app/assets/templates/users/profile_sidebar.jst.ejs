@@ -1,6 +1,13 @@
-<div id="statistics"></div>
+<div id="statistics">
+	Statistics <a href="#/statistics">View all</a><br>
+ 	Plays Today: 0 <br>
+ 	Plays Yesterday: 0 <br>
+ 	0 Plays in total
+</div>
 
-<div id="following"></div>
+<div id="following">
+	0 Followings <a href="#/followings">View all</a>
+</div>
 
 <div id="play_sets">
 	<% var setCount = SoundStorm.currentUser.playSets.length %>
@@ -12,4 +19,6 @@
 	<%= JST['users/_sidebar_like']() %>
 </div>
 
-<div id="comments"></div>
+<div id="comments">
+	0 Comments <a href="#/comments">View all</a>
+</div>
