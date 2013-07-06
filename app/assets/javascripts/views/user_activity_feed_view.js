@@ -36,8 +36,6 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 	},
 
 	createPlaySet: function(event) {
-		console.log("CREATE PLAY SET")
-		event.preventDefault();
 		var attrs = $(event.target.form).serializeJSON();
 		SoundStorm.currentUser.playSets.create(attrs, {
 			success: function(model, response) {
@@ -50,8 +48,6 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 	},
 
 	removeTrack: function(event) {
-		event.preventDefault();
-		var that = this;
 		var trackId = $(event.target).parent(".track").attr("data-track-id");
 
 		SoundStorm.currentUser.tracks.get(trackId).destroy({ 
@@ -70,7 +66,6 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 	},
 
 	removePlaySet: function(event) {
-		var that = this;
 		var playSetId = $(event.target).parent(".play-set").attr("data-play-set-id");
 		SoundStorm.currentUser.playSets.get(playSetId).destroy({ 
 			success: function(model, response) {
@@ -103,6 +98,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 		$(event.target).siblings("button").removeClass("hidden");
 		var track = SoundStorm.currentUser.tracks.get($(event.target).attr("data-track-id"));
 		var playSet = SoundStorm.currentUser.playSets.get($(event.target).attr("data-play-set-id"));
+		debugger
 		$.ajax({
 			url: "play_settings/1.json", //hackey?
 			type: "DELETE",

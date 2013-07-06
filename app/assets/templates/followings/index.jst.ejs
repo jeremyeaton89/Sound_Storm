@@ -1,0 +1,14 @@
+<h1>Followings Index</h1>
+
+<h2>Creators to Follow</h2>
+
+<ul>
+<% users.each(function(user) { %>
+	
+	<li>
+		<%= user.escape('username') %>
+		
+	</li>
+
+<% }); %> 
+</ul>

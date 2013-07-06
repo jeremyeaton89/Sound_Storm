@@ -1,5 +1,6 @@
 SoundStorm::Application.routes.draw do
   root to: "root#root"
+  resources :followings
   resources :likes
   resources :play_sets
   resources :play_settings

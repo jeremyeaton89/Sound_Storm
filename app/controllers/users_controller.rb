@@ -20,11 +20,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		if current_user
-			render json: current_user
-		else
-			render error: 404
-		end
+		respond_with current_user
 	end
 
 	def index
@@ -34,12 +30,8 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def edit
-	end
-
 	def update
-		current_user.update_attributes(params[:user])
-		respond_with current_user
+		respond_with current_userupdate_attributes(params[:user])
 	end
 
 end

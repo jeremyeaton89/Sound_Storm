@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704234023) do
+ActiveRecord::Schema.define(:version => 20130705214830) do
+
+  create_table "followings", :force => true do |t|
+    t.integer  "follower_id"
+    t.integer  "followee_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "likes", :force => true do |t|
     t.integer  "track_id"

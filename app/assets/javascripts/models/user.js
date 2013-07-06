@@ -15,6 +15,7 @@ SoundStorm.Models.User = Backbone.Model.extend({
 
 	parse: function(response) {
 		var that = this;
+		debugger
 		if (response && response.likes) { // ?
 			_(response.likes).each(function(like) {
 				that.likes.add(new SoundStorm.Models.Like(like));

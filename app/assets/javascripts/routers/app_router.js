@@ -16,6 +16,7 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 		"play_sets/:id": "showPlaySet",
 		"play_sets": "showPlaySets",
 		"likes": "showLikes",
+		"followings": "followingsIndex"
 	},
 
 	index: function() {
@@ -57,5 +58,19 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 			model: SoundStorm.currentUser.playSets.get(id)
 		});
 		this.$rootEl.html(playSetEditVew.render().$el);
+	},
+
+	followingsIndex: function() {
+		var that = this;
+		$.ajax({
+			url: "/followings",
+			type: "get",
+			success: function(response) {
+				var followingsIndexView = new SoundStorm.Views.FollowingsIndexView({
+					collection: new SoundStorm.Collections.Followings(response)
+				});
+				that.$rootEl.html(followingsIndexView.render().$el);
+			}
+		})
 	}
 });

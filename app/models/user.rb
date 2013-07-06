@@ -13,7 +13,11 @@ class User < ActiveRecord::Base
   has_many :play_sets, foreign_key: :owner_id
   has_many :likes
   has_many :liked_tracks, through: :likes, source: :track
-  
+
+  has_many :followings, foreign_key: :follower_id
+  has_many :followed_users, through: :followings, source: :followee
+  has_many :followers, through: :followings, source: :follower
+
   has_attached_file :profile_picture, 
     :storage => :s3,
     :s3_credentials => {
@@ -43,7 +47,9 @@ class User < ActiveRecord::Base
     :include => [
       { :likes => { :include => :track }},
       { :play_sets => { :include => :tracks }},
-      { :tracks => { :methods => :audio_url }}
+      { :tracks => { :methods => :audio_url }},
+      :followers,
+      :followed_users 
     ])
   end
 

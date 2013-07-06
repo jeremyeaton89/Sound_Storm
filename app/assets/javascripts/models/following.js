@@ -1,0 +1,1 @@
+SoundStorm.Models.Following = Backbone.Model.extend({});

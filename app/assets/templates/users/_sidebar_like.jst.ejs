@@ -2,8 +2,7 @@
 <span class="sidebar-data"><%= likeCount %> <%= (likeCount == 1 ? "like" : "likes") %></span>
 <a href="#/likes">View all</a>
 
-<% _((SoundStorm.currentUser.likes.sortBy(function(like) { return like.created_at } )).reverse())
-	.first(3).forEach(function(like) { %>
+<% _((SoundStorm.currentUser.likes.sortBy(function(like) { return like.created_at } )).reverse()).first(3).forEach(function(like) { %>
 
 	<div class="like-container">
 		<a href="#/tracks/<%= like.get('track').id %>"><%= like.get("track").name %></a>		
