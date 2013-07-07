@@ -35,12 +35,13 @@ SoundStorm::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-#   config.paperclip_defaults = {
-#   :storage => :s3,
-#   :s3_credentials => {
-#     :bucket => "images-development", #["images-development", "tracks-development"],
-#     :access_key_id => "AKIAIFLJSXXQSQBKJVMQ",
-#     :secret_access_key => "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"
-#   }
-# }
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => "images-development", #["images-development", "tracks-development"],
+    :access_key_id => "AKIAIFLJSXXQSQBKJVMQ",
+    :secret_access_key => "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"
+  },
+    :s3_host_name => "s3-us-west-2.amazonaws.com" 
+}
 end
