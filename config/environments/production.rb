@@ -66,11 +66,12 @@ SoundStorm::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.paperclip_defaults = {
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket => ["images1-production", "tracks-production"],
-    :access_key_id => "AKIAIFLJSXXQSQBKJVMQ",
-    :secret_access_key => "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"
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => "soundstorm-development", 
+      :access_key_id => "AKIAIFLJSXXQSQBKJVMQ",
+      :secret_access_key => "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"
+    },
+    :s3_host_name => "s3-us-west-2.amazonaws.com" 
   }
-}
 end
