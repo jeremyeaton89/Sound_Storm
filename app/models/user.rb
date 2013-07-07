@@ -19,13 +19,7 @@ class User < ActiveRecord::Base
   has_many :reverse_followings, foreign_key: :followed_user_id, class_name: "Following", dependent: :destroy
   has_many :followers, through: :reverse_followings 
 
-  has_attached_file :profile_picture, 
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => "images-development", #["images-development", "tracks-development"],
-      :access_key_id => "AKIAIFLJSXXQSQBKJVMQ",
-      :secret_access_key => "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"
-    }, :s3_host_name => "s3-us-west-2.amazonaws.com" 
+  has_attached_file :profile_picture
 
   def password=(password)
   	self.password_digest = BCrypt::Password.create(password)
