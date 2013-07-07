@@ -66,10 +66,10 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 			url: "/followings",
 			type: "get",
 			success: function(response) {
-				var followingsIndexView = new SoundStorm.Views.FollowingsIndexView({
+				var followingsCompositeView = new SoundStorm.Views.FollowingsCompositeView({
 					collection: new SoundStorm.Collections.Followings(response)
 				});
-				that.$rootEl.html(followingsIndexView.render().$el);
+				that.$rootEl.html(followingsCompositeView.render().$el);
 			}
 		})
 	}

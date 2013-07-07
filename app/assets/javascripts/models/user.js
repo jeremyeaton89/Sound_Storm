@@ -3,6 +3,8 @@ SoundStorm.Models.User = Backbone.Model.extend({
 		this.tracks = new SoundStorm.Collections.Tracks();
 		this.playSets = new SoundStorm.Collections.PlaySets();
 		this.likes = new SoundStorm.Collections.Likes();
+		this.followers = new SoundStorm.Collections.Users();
+		this.followedUsers = new SoundStorm.Collections.Users();
 	},
 
 	url: function() {
@@ -15,12 +17,14 @@ SoundStorm.Models.User = Backbone.Model.extend({
 
 	parse: function(response) {
 		var that = this;
-		debugger
 		if (response && response.likes) { // ?
 			_(response.likes).each(function(like) {
 				that.likes.add(new SoundStorm.Models.Like(like));
 			});
 		}
+		debugger
+		if (response && response.followers) this.followers.set(response.followers);
+		if (response && response.followed_users) this.followedUsers.set(response.followed_users);
 		if (response && response.tracks) this.tracks.set(response.tracks);
 		if (response && response.play_sets) this.playSets.set(response.play_sets);
 		

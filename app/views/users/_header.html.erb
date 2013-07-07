@@ -8,15 +8,13 @@
 	<button id="user_select">USER SELECT</button>
 	[<div id="user_dropdown" class="hidden">
 		<a href="#/profile">Your Profile</a>
-		<a href="#">Your likes</a>
-		<a href="#">Your Sets</a>
-		<a href="#">Your groups</a>
-		<a href="#">Who to follow</a>
-		<a href="#">Settings</a>
+		<a href="#/likes">Your likes</a>
+		<a href="#/play_sets">Your Sets</a>
+		<a href="#/followings">Who to follow</a>
+		<a href="#/profile/edit">Settings</a>
 		<%= button_to "Sign Out", session_url, method: :delete %>
 	</div>]
 	<a href="#/upload">Upload</a>
 	<span>Volume Control</span>
-	<a href="#">More</a>
 	<hr>
 </header>

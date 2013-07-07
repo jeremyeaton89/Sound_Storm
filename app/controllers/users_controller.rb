@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :authenticate_user, except: :new
+	before_filter :authenticate_user, except: [:new, :create]
 	respond_to :json
 
 	def new
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(params[:user])
-
+		
 		if @user.save
 			login(@user)
 
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		respond_with current_userupdate_attributes(params[:user])
+		respond_with current_user.update_attributes(params[:user])
 	end
 
 end

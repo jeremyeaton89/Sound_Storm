@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   has_many :followings, foreign_key: :follower_id
   has_many :followed_users, through: :followings, source: :followee
-  has_many :followers, through: :followings, source: :follower
+  has_many :followers, through: :followings, source: :followee
 
   has_attached_file :profile_picture, 
     :storage => :s3,

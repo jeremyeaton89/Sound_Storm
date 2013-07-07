@@ -73,3 +73,21 @@ div#likes {
 	background: pink;
 	border: 2px solid green;
 }
+
+div#to_follow_view {
+	margin-top: 24px;
+	width: 35%;
+	float: left;
+}
+
+div#following_view {
+	margin: 24px 24px 24px 24px;
+	width: 25%;
+	float: left;
+}
+
+div#followers_view {
+	margin-top: 24px;
+	width: 25%;
+	float: left;
+}

@@ -1,12 +1,11 @@
 <h2>Creators To Follow</h2>
 
 <ul>
-	<% users.each(function(user) { %>
+	<% users.forEach(function(user) { %> <!-- each -->
 
 		<li>
-			
 			<%= user.escape('username') %>
-
+			<button data-user-id="<%= user.id %>" class="follow">Follow</button>
 		</li>
 
 	<% }); %> 

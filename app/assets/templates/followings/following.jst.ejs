@@ -1,0 +1,12 @@
+<h2>Following (<%= SoundStorm.currentUser.followedUsers.length %>)</h2>
+
+<ul>
+<% followedUsers.each(function(user) { %>
+	
+	<li>
+		<%= user.escape('username') %>
+		<button data-user-id="<%= user.id %>" class="unfollow">Unfollow</button>
+	</li>
+
+<% }); %>
+</ul>

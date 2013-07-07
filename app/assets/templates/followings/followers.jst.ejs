@@ -1,0 +1,11 @@
+<h2>Followers (<%= SoundStorm.currentUser.followers.length %>)</h2>
+
+<ul>
+<% followers.each(function(user) { %>
+	
+	<li>
+		<%= user.escape('username') %>
+	</li>
+
+<% }); %>
+</ul>

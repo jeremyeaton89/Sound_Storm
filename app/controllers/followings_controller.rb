@@ -6,11 +6,13 @@ class FollowingsController < ApplicationController
 	end
 
 	def create
-
+		respond_with Following.create(params[:following])
 	end
 
 	def destroy
-
+		following = Following.where(
+			follower_id: params[:follower_id], followee_id: params[:followee_id]
+		).first
+		respond_with following.destroy
 	end
-
 end
