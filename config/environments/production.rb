@@ -68,7 +68,7 @@ SoundStorm::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => "soundstorm-development", 
+      :bucket => "soundstorm-production", 
       :access_key_id => "AKIAIFLJSXXQSQBKJVMQ",
       :secret_access_key => "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"
     },
