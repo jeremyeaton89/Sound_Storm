@@ -14,18 +14,24 @@ SoundStorm.Views.FollowingView = Backbone.View.extend({
 
 	unfollowUser: function(event) {
 		var that = this;
-		var followeeId = $(event.target).attr("data-user-id");
+		var followedUserId = $(event.target).attr("data-user-id");
 		$.ajax({
 			url: "/followings/1", // dummy id... :/  -- backbone relational en el futuro?? grab follower/followee off this model's association
 			type: "DELETE",
 			data: {
 				follower_id: SoundStorm.currentUser.id,
-				followee_id: followeeId
+				followed_user_id: followedUserId
 			},
 			success: function() {
-				unfollowedUser = SoundStorm.currentUser.followedUsers.get(followeeId);
-				SoundStorm.currentUser.followedUsers.remove(unfollowedUser);
-				that.collection.add(unfollowedUser);
+				if (SoundStorm.currentUser.followers.get(followedUserId)) {
+					var follower = SoundStorm.currentUser.followers.get(followedUserId)
+					SoundStorm.currentUser.followedUsers.remove(follower);
+					SoundStorm.currentUser.followers.trigger("add");
+				} else {
+					unfollowedUser = SoundStorm.currentUser.followedUsers.get(followedUserId);
+					SoundStorm.currentUser.followedUsers.remove(unfollowedUser);
+					that.collection.add(unfollowedUser);
+				}
 			}
 		});
 	},

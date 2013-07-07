@@ -14,9 +14,10 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :liked_tracks, through: :likes, source: :track
 
-  has_many :followings, foreign_key: :follower_id
-  has_many :followed_users, through: :followings, source: :followee
-  has_many :followers, through: :followings, source: :followee
+  has_many :followings, foreign_key: :follower_id, dependent: :destroy
+  has_many :followed_users, through: :followings
+  has_many :reverse_followings, foreign_key: :followed_user_id, class_name: "Following", dependent: :destroy
+  has_many :followers, through: :reverse_followings 
 
   has_attached_file :profile_picture, 
     :storage => :s3,

@@ -5,6 +5,12 @@
 	
 	<li>
 		<%= user.escape('username') %>
+
+		<% if (SoundStorm.currentUser.followedUsers.get(user.id)) { %>
+			<button data-user-id="<%= user.id %>" disabled="true">Following</button>
+		<% } else { %>
+			<button data-user-id="<%= user.id %>"class="follow">Follow Back</button>
+		<% }%>
 	</li>
 
 <% }); %>

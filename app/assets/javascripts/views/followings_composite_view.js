@@ -8,7 +8,8 @@ SoundStorm.Views.FollowingsCompositeView = Backbone.View.extend({
 
 		// render to_follow view
 		var users = this.collection.filter(function(user) {
-			return SoundStorm.currentUser.followedUsers.pluck("username").indexOf(user.get("username")) == -1;
+			return (SoundStorm.currentUser.followedUsers.pluck("username").indexOf(user.get("username")) == -1) &&
+			(SoundStorm.currentUser.followers.pluck("username").indexOf(user.get("username")) == -1);
 		});
 
 		var toFollowView = new SoundStorm.Views.ToFollowView({
@@ -23,7 +24,9 @@ SoundStorm.Views.FollowingsCompositeView = Backbone.View.extend({
 		this.$el.append(followingView.render().$el);
 
 		// render followers view
-		var followersView = new SoundStorm.Views.FollowersView();
+		var followersView = new SoundStorm.Views.FollowersView({
+			collection: toFollowView.collection
+		});
 		this.$el.append(followersView.render().$el);
 
 		return this;

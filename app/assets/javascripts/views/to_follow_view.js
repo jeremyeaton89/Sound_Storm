@@ -19,11 +19,11 @@ SoundStorm.Views.ToFollowView = Backbone.View.extend({
 			type: "post",
 			data: { following: {
 				follower_id: SoundStorm.currentUser.id,
-				followee_id: $(event.target).attr("data-user-id") 
+				followed_user_id: $(event.target).attr("data-user-id") 
 			}},
 			success: function(response) {
 				$(event.target).closest("li").remove();
-				newFollowedUser = that.collection.get(response.followee_id);
+				newFollowedUser = that.collection.get(response.followed_user_id);
 				that.collection.remove(newFollowedUser);
 				SoundStorm.currentUser.followedUsers.add(newFollowedUser);
 			}

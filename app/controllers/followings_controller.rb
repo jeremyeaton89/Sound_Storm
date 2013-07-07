@@ -11,7 +11,7 @@ class FollowingsController < ApplicationController
 
 	def destroy
 		following = Following.where(
-			follower_id: params[:follower_id], followee_id: params[:followee_id]
+			follower_id: params[:follower_id], followed_user_id: params[:followed_user_id]
 		).first
 		respond_with following.destroy
 	end

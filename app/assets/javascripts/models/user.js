@@ -22,7 +22,6 @@ SoundStorm.Models.User = Backbone.Model.extend({
 				that.likes.add(new SoundStorm.Models.Like(like));
 			});
 		}
-		debugger
 		if (response && response.followers) this.followers.set(response.followers);
 		if (response && response.followed_users) this.followedUsers.set(response.followed_users);
 		if (response && response.tracks) this.tracks.set(response.tracks);
