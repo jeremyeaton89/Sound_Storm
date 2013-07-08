@@ -1,10 +1,8 @@
-
+<span class="user-name"><%= user.escape('username') %></span><br>
 <img 
-	src="<%= user.escape('profile_picture_url') %>"
-	height="200px"
-	width="200px">
+	class="profile-picture"
+	src="<%= user.escape('profile_picture_url') %>">
 <div id="profile_info">
-	<h3><%= user.escape('username') %></h3><br>
 	<p><%= user.escape('first_name') %> <%= user.escape('last_name') %></p>
 
 	# followers

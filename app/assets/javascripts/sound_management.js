@@ -1,6 +1,6 @@
 $(function() {
 	
-	$("html").on("click", ".sound", function() {
+	$("html").on("click", ".play-area", function() {
 		// debugger
 		$(this).closest(".widget").toggleClass("playing");
 

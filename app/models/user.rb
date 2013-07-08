@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
 
   # has_many :profile_images
   has_many :tracks, foreign_key: :owner_id
-  has_many :play_sets, foreign_key: :owner_id
-  has_many :likes
+  has_many :play_sets, foreign_key: :owner_id, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :liked_tracks, through: :likes, source: :track
 
   has_many :followings, foreign_key: :follower_id, dependent: :destroy

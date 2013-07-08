@@ -1,22 +1,24 @@
 <div class="profile-widget widget track sound" data-track-id="<%= track.id %>">
 	
 	<div class="image-container">
-
+		<img src="http://s3-us-west-2.amazonaws.com/soundstorm-development/users/profile_pictures/000/000/021/original/Screenshot_7_7_13_7_26_PM.png?1373250664">
 	</div>
 
-	<div class="sound-container">
-		<div class="controls-names-tags">
-			<span><%= track.escape("name") %></span>
-		</div>
-	</div>
-
-	<div class="visualizer-container">
-		<div class="visualizer">
+	<div class="play-area">
+		<div class="name-container playable">
+			<div class="controls-names-tags">
+				<span><%= track.escape("name") %></span>
+			</div>
 			
 		</div>
-	</div>
+		<div class="visualizer playable">
+			<div class="seeker">
 
-	<audio src="<%= track.escape("audio_url") %>" controls="controls"></audio>
+			</div>
+		</div>
+		<audio src="<%= track.escape("audio_url") %>"></audio>
+	</div>
+	
 
 	<div class="buttons-and-stats">
 		<%= JST['tracks/_like_buttons']({ track: track }) %>
@@ -26,5 +28,6 @@
 		<button class="remove">Remove</button>
 	</div>
 	
+	<div class="pallet"></div>
 </div>
 

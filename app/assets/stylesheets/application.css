@@ -16,38 +16,145 @@
 	display: none;
 }
 
+header {
+	margin: -10px -10px 0px -10px;
+	background-color: #666666;
+	border-bottom-right-radius: 50px;
+	border-bottom-left-radius: 50px;
+	/*border-bottom-radius: 1em; */
+	height: 35px;
+}
+
 .left-column, div {
-	border: 1px dashed;
 }
 
 .left-column {
-	width: 200px;
-	border: 1px dashed red;
+	margin-left: 10px;
+	background-color: #6c7d7c;
+	width: 180px;
 	float: left;
-	margin-top: 24px;
+	margin: 24px 30px;
+	border-radius:4em 1em 1em 4em;
+	padding-top: 0px;
+	padding-left: 10px;
+	padding-bottom: 25px;
+	/*border-bottom-radius: */
 }
 
 .middle-column {
-	width: 45%;
-	border: 1px dashed orange;
+	width: 600px;
 	float: left;
-	margin: 24px 24px 24px 24px;
+	margin: 24px 3% 25px 2%;
 }
 
 .right-column {
-	width: 25%;
+	width: 180px;
 	position: relative;
-	left: 75px;
 	float: left;
-	margin: 24px;
+	margin: 24px 0px;
+	padding: 25px 15px 25px 15px;	background-color: #6c7d7c;
+	height: 300px;
+	width: 12em;
+	border-radius: 1em 4em 1em 4em;
+}
+
+.profile-picture {
+	width: 180px;
+	height: 180px;
+	position: relative;
+	left: 20px;
+	margin-top: 15px;
+	margin-bottom: 25px;
+	border-radius: 10px;
+}
+
+.user-name {
+	font-size: 20px;
+	padding: 3px 15px 3px 15px;
+	top: -10px;
+	left: -10px;
+	background: orange;
+	position: relative;
+	height: 30px;
+	border-radius: 1em;
+}
+
+#profile_info {
+	background-color: orange;
+	position: relative;
+	padding: 2px 10px 10px 5px;
+	border-radius: 1em 1em 3em 2em;
+	left: 20px;
 }
 
 .profile-widget {
-	border: 2px solid green;
 }
 
 .track {
-	background: gold;
+	height: 120px;
+}
+
+.pallet {
+	position: relative;
+	z-index: -1;
+	height: 40px;
+	width: 300px;
+	border-radius: 20px;
+	background: #666666;
+	left: 80px;
+	top: 10px;
+}
+
+.name-container { 
+	position: relative;
+	left: 20px;
+	border-radius: 20px;
+	padding-left: 25px;
+	float: left;
+	height: 40px;
+	width: 375px;
+	background-color: #0042ff;
+}
+
+.play-area {
+	float: left;
+	width: 460px;
+	margin-left: 10px;
+}
+
+.visualizer {
+	position: relative;
+	top: 60px;
+	border-radius: 45px;
+	height: 80px;
+	background: #222828;
+}
+
+.seeker {
+	position: relative;
+	margin: auto;
+	/*top: 10px;
+	left: 50px;*/
+	height: 70%;
+	width: 0%;
+	background-color: #44c3fe;
+	border-right: 3px solid orange;
+}
+
+.image-container img {
+	position: relative;
+	top: -14px;
+	border-radius: 15px;
+	height: 110px;
+	width: 110px;
+	float: left;
+}
+
+.buttons-and-stats {
+	position: relative;
+	top: 50px;
+	left: 125px;
+	height: 20px;
 }
 
 .play-set {
@@ -71,7 +178,6 @@ div#play_sets {
 
 div#likes {
 	background: pink;
-	border: 2px solid green;
 }
 
 div#to_follow_view {
@@ -92,9 +198,6 @@ div#followers_view {
 	float: left;
 }
 
-div.visualizer {
-	width: 100%;
-	height: 80px;
-	background: gray;
-
+body {
+	/*background: #d8d9d9;*/
 }

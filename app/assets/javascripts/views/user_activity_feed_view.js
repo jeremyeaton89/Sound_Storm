@@ -25,7 +25,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 
 	popSetForm: function(event) {
 		$(event.target).addClass("hidden");
-		$(event.target).parent(".track").after(JST['popups/add_to_set']({
+		$(event.target).closest(".track").after(JST['popups/add_to_set']({
 			trackId: $(event.target).attr("data-track-id")
 		}));		
 	},

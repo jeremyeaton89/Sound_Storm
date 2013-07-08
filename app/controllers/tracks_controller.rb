@@ -7,7 +7,7 @@ class TracksController < ApplicationController
 		track = Track.create(params[:track])
 
 		respond_to do |f|
-			f.html { render :index }
+			f.html { redirect_to "/users#/profile" }
 			f.json { render :json => track }
 		end
 	end
