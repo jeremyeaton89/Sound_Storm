@@ -1,14 +1,24 @@
 $(function() {
 	var interval = window.setInterval();
+	
 	$("body").on("click", ".seeker-container", function(event) {
-		var $thisAudio = $(this).closest(".widget").find("audio");
-		// debugger
-		$thisAudio[0].currentTime = (event.offsetX - 2)/ $(this).width()  * $thisAudio[0].duration;
-		console.log(event);
-		// debugger
-	});
+		interval = window.clearInterval(interval);		
 
-	// on timeupdate, do below
+		var $thisAudio = $(this).closest(".widget").find("audio");
+		$thisAudio[0].currentTime = (event.offsetX - 2)/ $(this).width() * $thisAudio[0].duration;
+		// pause all audio
+		$(".play-button").addClass("play").removeClass("pause");
+		$("audio").each(function(i, audio) { audio.pause() });
+		// play this audio
+		$(this).closest(".widget").find(".play-button").removeClass("play").addClass("pause");
+		$thisAudio[0].play();
+
+		var that = this;
+		interval = window.setInterval(function() {
+			var width = $thisAudio[0].currentTime / $thisAudio[0].duration * 100;
+			$(that).find(".seeker").width(width + "%");		
+		}, 200);
+	});
 	
 	$("body").on("click", ".play-button", function() {
 		var $thisAudio = $(this).parent().siblings("audio");
