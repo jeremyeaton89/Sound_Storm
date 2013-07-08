@@ -5,7 +5,8 @@
 <div id="profile_info">
 	<p><%= user.escape('first_name') %> <%= user.escape('last_name') %></p>
 
-	# followers
+	<% followingCount = SoundStorm.currentUser.followers.length %>
+	<a href="#/followings"><%= followingCount %> <%= followingCount == 1 ? "follower" : "followers"%></a><br>
 
 	<a href="#/profile/edit" id="profile_edit">Edit</a>
 	<button id="share">Share</button>
