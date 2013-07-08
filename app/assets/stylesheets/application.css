@@ -120,6 +120,57 @@ header {
 	top: 10px;
 }
 
+.play-button {
+	background-color: gray;
+	position: relative;
+	left: -35px;
+	top: -14px;
+	width: 50px;
+	height: 50px;
+	border-radius: 35px;
+	border: 2px solid #ccc;
+	float: left;
+	box-shadow: inset 0 0 3px #000000;
+}
+
+.play .symbol1 {
+	width: 0; 
+	height: 0; 
+	position: relative;
+	left: 15px;
+	top: 5px;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 32px solid #f6f4f2;
+	/*box-shadow: 0 0 10px 10px #000000;*/
+}
+
+.play .symbol2 {
+	display: none;
+}
+
+.pause .symbol1 {
+	position: relative;
+	left: 12px;
+	top: 8px;
+	width: 8px;
+	height: 35px;
+	background-color: #f6f4f2;
+	float: left;
+	border-radius: 1.5px;
+}
+
+.pause .symbol2 {
+	position: relative;
+	left: 23px;
+	top: 8px;
+	width: 8px;
+	height: 35px;
+	background-color: #f6f4f2;
+	float: left;
+	border-radius: 1.5px;
+}
+
 .name-container { 
 	position: relative;
 	left: 20px;
@@ -129,7 +180,12 @@ header {
 	height: 40px;
 	width: 375px;
 	background-color: #0042ff;
+	box-shadow: inset 0 0 10px #000000;
 }
+
+.name-inner-container {
+	float: left;
+} 
 
 .play-area {
 	float: left;
@@ -159,15 +215,11 @@ header {
 
 .seeker {
 	position: relative;
-	top: 1.5px;
 	border-radius: 0.5em;
-	/*top: 10px;
-	left: 50px;*/
 	height: 72px;
-	width: 10%;
+	width: 0;
 	background-color: #c45c00;
 	border-right: 4px solid orange;
-	/*border-left: 3px solid orange;*/
 	opacity: 0.5;
 }
 
@@ -185,6 +237,15 @@ header {
 	top: 60px;
 	left: 125px;
 	height: 20px;
+}
+
+.track-name {
+	top: 12px;
+	left: -25px;
+	position: relative;
+	font-size: 20px;/*
+	color: #c45c00;
+	opacity: 0.9;*/
 }
 
 .play-set {

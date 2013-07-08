@@ -1,14 +1,23 @@
 <div class="profile-widget widget track sound" data-track-id="<%= track.id %>">
 	<hr>
-	
+
 	<div class="image-container">
 		<img src="http://s3-us-west-2.amazonaws.com/soundstorm-development/users/profile_pictures/000/000/021/original/Screenshot_7_7_13_7_26_PM.png?1373250664">
 	</div>
 
+	
+
 	<div class="play-area">
-		<div class="name-container playable">
+		<audio src="<%= track.escape("audio_url") %>"></audio>
+		<div class="name-container">
+			<div class="play-button play">
+				<div class="symbol">
+					<div class="symbol1"></div>
+					<div class="symbol2"></div>
+				</div>
+			</div>
 			<div class="name-inner-container">
-				<span><%= track.escape("name") %></span>
+				<span class="track-name"><%= track.escape("name") %></span>
 			</div>
 			
 		</div>
@@ -19,7 +28,6 @@
 				</div>
 			</div>
 		</div>
-		<audio src="<%= track.escape("audio_url") %>"></audio>
 	</div>
 	
 
