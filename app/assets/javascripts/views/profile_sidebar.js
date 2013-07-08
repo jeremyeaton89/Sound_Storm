@@ -19,7 +19,3 @@ SoundStorm.Views.ProfileSidebar = Backbone.View.extend({
 		return this;
 	}
 });
-
-	$("button.add-to-set").on("click", function(event) {
-		var track = $(this).parent(".track");
-	});

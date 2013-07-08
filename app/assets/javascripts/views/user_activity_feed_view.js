@@ -36,6 +36,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 	},
 
 	createPlaySet: function(event) {
+		event.preventDefault();
 		var attrs = $(event.target.form).serializeJSON();
 		SoundStorm.currentUser.playSets.create(attrs, {
 			success: function(model, response) {

@@ -1,4 +1,5 @@
 class TracksController < ApplicationController
+	before_filter :authenticate_user
 	respond_to :json
 	
 	def create
@@ -18,7 +19,6 @@ class TracksController < ApplicationController
 	def index
 		# respond_with Track.all
 		@tracks = Track.all
-		p "HERE ARE THE FRIGGIN TRACKS!!! #{@tracks}"
 		respond_to do |f|
 			f.html { render :index }
 			f.json { render @tracks }

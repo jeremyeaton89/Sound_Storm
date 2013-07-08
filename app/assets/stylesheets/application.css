@@ -28,7 +28,7 @@
 }
 
 .middle-column {
-	width: 35%;
+	width: 45%;
 	border: 1px dashed orange;
 	float: left;
 	margin: 24px 24px 24px 24px;
@@ -90,4 +90,11 @@ div#followers_view {
 	margin-top: 24px;
 	width: 25%;
 	float: left;
+}
+
+div.visualizer {
+	width: 100%;
+	height: 80px;
+	background: gray;
+
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130707011326) do
+ActiveRecord::Schema.define(:version => 20130707224916) do
 
   create_table "followings", :force => true do |t|
     t.integer  "follower_id"
@@ -50,6 +50,10 @@ ActiveRecord::Schema.define(:version => 20130707011326) do
     t.string   "audio_content_type"
     t.integer  "audio_file_size"
     t.datetime "audio_updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "tracks", ["name"], :name => "index_tracks_on_name"

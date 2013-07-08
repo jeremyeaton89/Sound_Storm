@@ -1,14 +1,30 @@
-<div class="profile-widget track" data-track-id="<%= track.id %>">
-	<p><%= track.escape("name") %></p>
+<div class="profile-widget widget track sound" data-track-id="<%= track.id %>">
+	
+	<div class="image-container">
+
+	</div>
+
+	<div class="sound-container">
+		<div class="controls-names-tags">
+			<span><%= track.escape("name") %></span>
+		</div>
+	</div>
+
+	<div class="visualizer-container">
+		<div class="visualizer">
+			
+		</div>
+	</div>
+
 	<audio src="<%= track.escape("audio_url") %>" controls="controls"></audio>
 
-
-	<%= JST['tracks/_like_buttons']({ track: track }) %>
-	
-	<button data-track-id="<%= track.id %>" class="add-to-set">Add to Set</button>
-	<a href="#/tracks/<%= track.id %>/edit">Edit</a>
-	<button class="remove">Remove</button>
-
+	<div class="buttons-and-stats">
+		<%= JST['tracks/_like_buttons']({ track: track }) %>
+		
+		<button data-track-id="<%= track.id %>" class="add-to-set">Add to Set</button>
+		<a href="#/tracks/<%= track.id %>/edit">Edit</a>
+		<button class="remove">Remove</button>
+	</div>
 	
 </div>
 
