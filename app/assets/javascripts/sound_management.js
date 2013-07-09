@@ -24,8 +24,8 @@ $(function() {
 		}, 200);
 	});
 	
-
-	$("body").on("click", ".play-button", function() {
+	// Comment Form & Track buttons slide down
+	$("body").on("click", ".play-button, .seeker-container", function() {
 		if ($(this).closest(".widget").hasClass("track")) {
 			$(this).closest(".widget").find(".buttons-and-stats").animate({
 				"top": "120px"
@@ -35,16 +35,6 @@ $(function() {
 				"margin-top": "60",
 				"top": "-30px"
 			}, 600);
-			// debugger
-			
-			$(this).closest(".widget").next(".comment-form").bind("hover", function(){
-				console.log("HEREHEREHERHEREHER");
-				console.log(this)
-				$(this).css("background-color", "#ccc")
-			}, function() {
-				$(this).css("background-color", "#f6f4f2");
-			});
-
 		}
 	})
 	// Play Button
@@ -121,6 +111,4 @@ $(function() {
 			});
 		});
 	});
-
-
 });	

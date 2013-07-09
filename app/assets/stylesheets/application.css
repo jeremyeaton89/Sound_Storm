@@ -16,6 +16,7 @@
 	display: none;
 }
 
+
 header {
 	margin: -10px -10px 0px -10px;
 	background-color: #666666;
@@ -42,6 +43,9 @@ header {
 	width: 600px;
 	float: left;
 	margin: 24px 3% 25px 2%;
+	-moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .right-column {
@@ -269,6 +273,10 @@ header {
 
 .form-hover {
 	background-color: #dcdcdc;
+}
+
+.play-button, .seeker-container, button {
+	cursor: pointer;
 }
 
 .focus {
