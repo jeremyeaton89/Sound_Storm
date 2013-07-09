@@ -6,6 +6,7 @@ class Track < ActiveRecord::Base
   has_many :play_sets, through: :play_settings
   has_many :likes, dependent: :destroy
   has_many :likers, through: :likes, source: :user
+  has_many :comments, dependent: :destroy
 
   has_attached_file :audio
   # has_attached_file :image

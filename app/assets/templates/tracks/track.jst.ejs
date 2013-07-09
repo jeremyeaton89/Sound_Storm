@@ -41,7 +41,14 @@
 
 
 </div>
-<div class="comment-form">
+<div class="comment-form hidden">
+	<!-- CSRF? -->
 	<img src="<%= SoundStorm.currentUser.escape('profile_picture_url') %>">
+	<form>
 	<input type="text" placeholder="write a comment..." name="">
+	<input type="hidden" name="comment[author_id]" value="<%= SoundStorm.currentUser.id %>">
+	<input type="hidden" name="comment[track_id]" value="">
+	<input type="hidden" name="comment[offset]" value="">
+	<input type="hidden" name="comment[track_time]" value="">	
+	</form>
 </div>
