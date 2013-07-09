@@ -27,15 +27,24 @@ $(function() {
 
 	$("body").on("click", ".play-button", function() {
 		if ($(this).closest(".widget").hasClass("track")) {
+			$(this).closest(".widget").find(".buttons-and-stats").animate({
+				"top": "120px"
+			}, 400);
 			$(this).closest(".widget").next(".comment-form").removeClass("hidden").animate({
 				"opacity": 1,
 				"margin-top": "60",
 				"top": "-30px"
-			}, 500);
+			}, 600);
 			// debugger
-			$(this).closest(".widget").find(".buttons-and-stats").animate({
-				"top": "120px"
-			}, 500);
+			
+			$(this).closest(".widget").next(".comment-form").bind("hover", function(){
+				console.log("HEREHEREHERHEREHER");
+				console.log(this)
+				$(this).css("background-color", "#ccc")
+			}, function() {
+				$(this).css("background-color", "#f6f4f2");
+			});
+
 		}
 	})
 	// Play Button
@@ -68,13 +77,17 @@ $(function() {
 
 	});
 
-	// Comment Form
+	// Comment Form 
 	$("body").on("focus", "input[type='text']", function(event) {
 		event.preventDefault();
+		// debugger
+		$(this).closest(".comment-form").off("mouseover mouseout");
+
 		$(this).closest(".comment-form").css({
 			"background-color": "#666666",
 			"border": "1px solid black"
 		});
+
 		var offset = $(this).closest(".comment-form").prev(".widget").find(".seeker").width();
 		$img = $("<img src=\"<%= SoundStorm.currentUser.escape('profile_picture_url') %>\">").css({
 			height: "12px",
@@ -89,11 +102,23 @@ $(function() {
 		$(this).closest(".comment-form").prev(".widget").find("seeker-container")//.append(img)
 
 	});
-
+	// Turn on hover styling on comment form
 	$("body").on("blur", "input[type='text']", function(event) {
 		$(this).closest(".comment-form").css({
 			"background-color": "#f6f4f2",
 			"border": "1px solid silver"
+		});
+		$(this).closest(".comment-form").on("mouseover", function() { 
+			$(this).css({
+				"background-color": "#dcdcdc",
+				"border": "1px solid silver"
+			});
+		});
+		$(this).closest(".comment-form").on("mouseout", function() { 
+			$(this).css({
+				"background-color": "#f6f4f2",
+				"border": "1px solid silver"
+			});
 		});
 	});
 
