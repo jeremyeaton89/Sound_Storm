@@ -1,12 +1,12 @@
 <% if (SoundStorm.currentUser.likes.hasTrack(track.id)) { %>
 
-	<button class="like hidden">Like</button>
-	<button class="unlike">Unlike</button>
+	<button title="Like this track" class="like icon-heart-empty hidden"></button>
+	<button title="Unlike this track" class="unlike icon-heart"></button>
 
 <% } else { %>
 
-	<button class="like">Like</button>
-	<button class="unlike hidden">Unlike</button>
+	<button title="Like this track" class="like icon-heart-empty"></button>
+	<button title="Unlike this track" class="unlike icon-heart hidden"></button>
 	
 <% } %>
 

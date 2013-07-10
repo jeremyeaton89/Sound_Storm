@@ -50,12 +50,12 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 	},
 
 	removeTrack: function(event) {
-		var trackId = $(event.target).parent(".track").attr("data-track-id");
+		var trackId = $(event.target).closest(".track").attr("data-track-id");
 
 		SoundStorm.currentUser.tracks.get(trackId).destroy({ 
 			success: function(model, response) {
 				console.log(model.get('name') + " deletion success!");
-				$(event.target).parent(".track").remove();
+				$(event.target).closest(".track").remove();
 				if (SoundStorm.currentUser.likes.hasTrack(trackId)) {
 					var like = SoundStorm.currentUser.likes.findWhere({
 					user_id: SoundStorm.currentUser.id,
@@ -68,7 +68,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 	},
 
 	removePlaySet: function(event) {
-		var playSetId = $(event.target).parent(".play-set").attr("data-play-set-id");
+		var playSetId = $(event.target).closest(".play-set").attr("data-play-set-id");
 		SoundStorm.currentUser.playSets.get(playSetId).destroy({ 
 			success: function(model, response) {
 				console.log(model.get('name') + " deletion success!");
