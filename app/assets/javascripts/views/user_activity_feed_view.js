@@ -21,6 +21,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 		"click button.remove-song-from-play-set": "removeSong",
 		"click button.like": "createLike",
 		"click button.unlike": "removeLike",
+		"submit form.comment-form-tag": "createComment"
 	},
 
 	popSetForm: function(event) {
@@ -140,6 +141,22 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 			success: function(response) {
 				$(event.target).addClass("hidden");
 				$(event.target).siblings("button.like").removeClass("hidden");		
+			}
+		});
+	},
+
+	createComment: function(event) {
+		event.preventDefault();
+		var attrs = $(event.target).serializeJSON();
+		SoundStorm.currentUser.comments.create(attrs, { 
+			success: function(model, data) {
+				$(event.target).find(".comment-field").val("")
+				var comment = JST['tracks/comment']({ comment: model });
+				// debugger
+				// var img = _.clone($(event.target).closest(".comment-form").prev(".widget").find("img.tiny-image").addClass("visible"));
+				$(event.target).closest(".comment-form").prev(".widget").find(".comments").append(comment)
+				// debugger
+				setTimeout(function() { $(comment).siblings("img").trigger("mouseout") }, 3000);
 			}
 		});
 	},

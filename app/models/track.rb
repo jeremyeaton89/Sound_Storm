@@ -1,5 +1,5 @@
 class Track < ActiveRecord::Base
-  attr_accessible :name, :owner_id, :audio#, :image
+  attr_accessible :name, :owner_id, :audio, :category#, :image
 
   belongs_to :owner, class_name: "User"
   has_many :play_settings
@@ -10,8 +10,9 @@ class Track < ActiveRecord::Base
 
   has_attached_file :audio
   # has_attached_file :image
-
-  validates :name, :owner, presence: true
+  CATEGORIES = %W(pop jazz/blues hiphop rock alternative reggae other)
+  validates :name, :owner_id, presence: true
+  validates :category, presence: true, inclusion: { in: CATEGORIES }
 
   def audio_url
     self.audio.url

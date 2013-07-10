@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  author_id: 1
+  track_id: 1
+  trackTime: 1
+  offset: 1
+
+two:
+  author_id: 1
+  track_id: 1
+  trackTime: 1
+  offset: 1

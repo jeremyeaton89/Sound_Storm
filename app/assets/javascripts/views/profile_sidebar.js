@@ -10,6 +10,7 @@ SoundStorm.Views.ProfileSidebar = Backbone.View.extend({
 		this.listenTo(SoundStorm.currentUser.likes, "remove", this.render);
 		this.listenTo(SoundStorm.currentUser.playSets, "add", this.render);
 		this.listenTo(SoundStorm.currentUser.playSets, "remove", this.render);
+		this.listenTo(SoundStorm.currentUser.comments, "add", this.render);
 	},
 
 	render: function() {

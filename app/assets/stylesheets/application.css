@@ -16,14 +16,46 @@
 	display: none;
 }
 
-
 header {
 	margin: -10px -10px 0px -10px;
-	background-color: #666666;
-	border-bottom-right-radius: 50px;
-	border-bottom-left-radius: 50px;
+	background-color: #3f3d3d;
 	/*border-bottom-radius: 1em; */
-	height: 35px;
+	height: 50px;
+	font-family: sans-serif;
+	color: #ccc;
+}
+
+header ul {
+	position: relative;
+	margin-top: -10px;
+	top: 15px;
+}
+
+header li {
+	display: inline-block;
+	margin: -10px 0 20px 20px;
+	padding-top: 10px;
+	cursor: pointer;
+}
+
+header a {
+	color: #ccc;
+	text-decoration: none;
+
+}
+
+.search-bar {
+	height: 18px;
+	width: 230px;
+	font-size: 14px;
+	border-radius: 15px;
+	padding-left: 10px;
+	color: #222828;
+	outline: none;
+}
+
+#sign_out {
+	right: 0;
 }
 
 .left-column {
@@ -37,6 +69,7 @@ header {
 	padding-left: 10px;
 	padding-bottom: 25px;
 	box-shadow: -3px 3px 3px #000000;
+	font-family: sans-serif;
 }
 
 .middle-column {
@@ -49,7 +82,6 @@ header {
 }
 
 .right-column {
-	/*width: 180px;*/
 	position: relative;
 	float: left;
 	margin: 24px 0px;
@@ -58,6 +90,7 @@ header {
 	width: 12em;
 	border-radius: 1em 4em 1em 4em;
 	box-shadow: 3px 3px 3px #000000;
+	font-family: sans-serif;
 }
 
 .profile-picture {
@@ -65,9 +98,9 @@ header {
 	height: 180px;
 	position: relative;
 	left: 20px;
-	margin-top: 15px;
+	margin-top: 14px;
 	margin-bottom: 25px;
-	border-radius: 10px;
+	/*border-radius: 10px;*/
 }
 
 .user-name {
@@ -176,9 +209,10 @@ header {
 	border-radius: 1.5px;
 }
 
+
 .name-container { 
 	position: relative;
-	left: 20px;
+	
 	border-radius: 20px;
 	padding-left: 25px;
 	float: left;
@@ -186,6 +220,27 @@ header {
 	width: 375px;
 	background-color: #0042ff;
 	box-shadow: inset 0 0 10px #000000;
+	font-family: "ocr a std";
+	
+	letter-spacing: -2px;
+	color: #ccc;
+	text-shadow: 0.1em 0.1em #333
+}
+
+.track-name {
+	top: 12px;
+	left: -25px;
+	position: relative;
+	font-size: 20px;/*
+	color: #c45c00;
+	opacity: 0.9;*/
+}
+
+.track-category {
+	position: absolute;
+	font-size: 12px;
+	top: 20px;
+	left: 300px;
 }
 
 .name-inner-container {
@@ -207,6 +262,45 @@ header {
 	background: #222828;
 }
 
+.visualizer img.tiny-image {
+	z-index: 5;
+	position: absolute;
+	float: left;
+	height: 18px;
+	width: 18px;
+	position: relative;
+	top: 54px;
+	/*margin-right: -18px;*/
+	margin-bottom: -18px;
+	/*margin-left: -18px;*/
+}
+
+.visualizer img.comment-image {
+	z-index: 3;
+	position: absolute;
+	top: 60px;
+	width: 12px;
+	height: 12px;
+}
+
+.comment-hover {
+	z-index: 3;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 52px;
+}
+
+.comments span{
+	z-index: 4;
+	position: absolute;
+	top: 52px;
+	background: black;
+	color: white;
+	font-size: 12px;
+	font-family: sans-serif;
+}
+
 .seeker-container {
 	background-color: #3f3d3d;
 	width: 400px;
@@ -220,7 +314,8 @@ header {
 }
 
 .seeker {
-	position: relative;
+	position: absolute;
+	top: -1px;
 	border-radius: 0.5em;
 	height: 72px;
 	width: 0;
@@ -232,7 +327,8 @@ header {
 .image-container img {
 	position: relative;
 	top: -14px;
-	border-radius: 15px;
+	left: -10px;
+	/*border-radius: 15px;*/
 	height: 110px;
 	width: 110px;
 	float: left;
@@ -243,15 +339,6 @@ header {
 	top: 65px;
 	left: 125px;
 	height: 20px;
-}
-
-.track-name {
-	top: 12px;
-	left: -25px;
-	position: relative;
-	font-size: 20px;/*
-	color: #c45c00;
-	opacity: 0.9;*/
 }
 
 .comment-form {

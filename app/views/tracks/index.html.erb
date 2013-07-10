@@ -1,5 +1,21 @@
-<h1>All Tracks</h1>
-<a href="/#/profile">Profile</a>
+<%= render partial: "shared/header" %>
+
+<h2>Check out new music from our community!</h2>
+
+<div class="category all"></div>
+<div class="category pop"></div>
+<div class="category jazz-blues"></div>
+<div class="category hiphop"></div>
+<div class="category rock"></div>
+<div class="category alternative"></div>
+<div class="category reggae"></div>
+<div class="category other"></div>
+
+
+<ul>
+	
+</ul>
+
 
 <ul>
 <% Track.all.each do |track| %>

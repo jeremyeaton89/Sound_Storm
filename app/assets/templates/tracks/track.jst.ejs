@@ -1,11 +1,9 @@
-<div class="profile-widget widget track sound" data-track-id="<%= track.id %>">
+<div class="widget track virgin" data-track-id="<%= track.id %>">
 	<hr>
 
 	<div class="image-container">
 		<img src="http://s3-us-west-2.amazonaws.com/soundstorm-development/users/profile_pictures/000/000/021/original/Screenshot_7_7_13_7_26_PM.png?1373250664">
 	</div>
-
-	
 
 	<div class="play-area">
 		<audio src="<%= track.escape("audio_url") %>"></audio>
@@ -18,11 +16,18 @@
 			</div>
 			<div class="name-inner-container">
 				<span class="track-name"><%= track.escape("name") %></span>
+				<span class="track-category"><%= track.escape("category") %></span>
 			</div>
 			
 		</div>
 		<div class="visualizer playable">
 			<div class="seeker-container">
+				<div class="comments">
+					<% track.get("comments").forEach(function(comment) { %>
+						<span class="comment-popup hidden" style="left: <%= comment.offset + 20%>px"><%= comment.content %></span>
+						<img class="comment-image" data-track-time="<%= comment.track_time %>" src="<%= comment.profile_picture_url %>" style="left: <%= comment.offset %>px;">
+					<% }); %>
+				</div>
 				<div class="seeker"></div>
 			</div>
 		</div>
@@ -44,11 +49,11 @@
 <div class="comment-form hidden">
 	<!-- CSRF? -->
 	<img src="<%= SoundStorm.currentUser.escape('profile_picture_url') %>">
-	<form>
-	<input type="text" placeholder="write a comment..." name="">
-	<input type="hidden" name="comment[author_id]" value="<%= SoundStorm.currentUser.id %>">
-	<input type="hidden" name="comment[track_id]" value="">
-	<input type="hidden" name="comment[offset]" value="">
-	<input type="hidden" name="comment[track_time]" value="">	
+	<form class="comment-form-tag">
+		<input type="text" class="comment-field" placeholder="write a comment..." name="comment[content]">
+		<input type="hidden" name="comment[author_id]" value="<%= SoundStorm.currentUser.id %>">
+		<input type="hidden" name="comment[track_id]" value="">
+		<input type="hidden" name="comment[offset]" value="">
+		<input type="hidden" name="comment[track_time]" value="">	
 	</form>
 </div>

@@ -1,0 +1,14 @@
+<% var commentCount = SoundStorm.currentUser.comments.length %>
+<span><%= commentCount %> <%= commentCount == 1 ? "comment" : "comments" %></span>
+<a href="#/comments">View all</a>
+
+<ul>
+<% SoundStorm.currentUser.comments.each(function(comment) { %>
+	
+	<li>
+		on Song Name <%= comment.escape("content") %> 
+		<span class="create-date"><%= comment.escape("created_at") %></span>
+	</li>
+
+<% }); %>
+</ul>

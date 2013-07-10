@@ -5,6 +5,7 @@ SoundStorm.Models.User = Backbone.Model.extend({
 		this.likes = new SoundStorm.Collections.Likes();
 		this.followers = new SoundStorm.Collections.Users();
 		this.followedUsers = new SoundStorm.Collections.Users();
+		this.comments = new SoundStorm.Collections.Comments();
 	},
 
 	url: function() {
@@ -22,11 +23,11 @@ SoundStorm.Models.User = Backbone.Model.extend({
 				that.likes.add(new SoundStorm.Models.Like(like));
 			});
 		}
+		if (response && response.comments) this.comments.set(response.comments);
 		if (response && response.followers) this.followers.set(response.followers);
 		if (response && response.followed_users) this.followedUsers.set(response.followed_users);
 		if (response && response.tracks) this.tracks.set(response.tracks);
 		if (response && response.play_sets) this.playSets.set(response.play_sets);
-		
 		return response;
 	}
 });

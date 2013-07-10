@@ -1,0 +1,4 @@
+<span 
+	class="comment-popup" 
+	style="left: <%= comment.escape('offset') + 20 %>px"><%= comment.escape('content') %></span>
+<img class="comment-hover" data-track-time="<%= comment.escape('track_time') %>" src="<%= SoundStorm.currentUser.escape('profile_picture_url') %>" style="left: <%= comment.escape('offset') %>px;">

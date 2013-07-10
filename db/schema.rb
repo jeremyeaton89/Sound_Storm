@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708231702) do
+ActiveRecord::Schema.define(:version => 20130710160305) do
 
   create_table "comments", :force => true do |t|
     t.integer  "author_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130708231702) do
     t.integer  "offset"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "content"
   end
 
   create_table "followings", :force => true do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20130708231702) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "category"
   end
 
   add_index "tracks", ["name"], :name => "index_tracks_on_name"

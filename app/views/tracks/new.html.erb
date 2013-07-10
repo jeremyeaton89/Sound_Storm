@@ -1,4 +1,4 @@
-
+<%= render partial: "shared/header" %>
 
 
 
@@ -19,6 +19,17 @@
 
 	<!-- <label for="track_image_file">Image</label><br>
 	<input id="track_image_file" name="track[image]" type="file"><br> -->
+
+	<label for="track_category">Category</label>
+	<select id="track_category" name="track[category]">
+		<option value="pop">Pop</option>
+		<option value="jazz/blues">Jazz/Blues</option>
+		<option value="hiphop">Hip Hop</option>
+		<option value="rock">Rock</option>
+		<option value="alternative">Alternative</option>
+		<option value="reggae">Reggae</option>
+		<option value="other">Other</option>
+	</select>
 
 	<br>
 
