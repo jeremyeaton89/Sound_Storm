@@ -5,6 +5,7 @@
 <% _((SoundStorm.currentUser.likes.sortBy(function(like) { return like.created_at } )).reverse()).first(3).forEach(function(like) { %>
 
 	<div class="like-container">
+		<img src="<%= like.get('track').image_url %>">
 		<a href="#/tracks/<%= like.get('track').id %>"><%= like.get("track").name %></a>		
 	</div>
 

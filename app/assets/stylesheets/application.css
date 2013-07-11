@@ -16,6 +16,20 @@
 	display: none;
 }
 
+h1 {
+	font-family: sans-serif;
+	color: #222828;
+	font-size: 28px;
+	text-shadow: 0.1em 0.1em #ccc
+}
+
+h2 {
+	font-family: sans-serif;
+	color: #3f3d3d;
+	font-size: 22px;
+	letter-spacing: 3px;
+}
+
 header {
 	margin: -10px -10px 0px -10px;
 	background-color: #3f3d3d;
@@ -359,7 +373,7 @@ header a {
 .buttons-and-stats {
 	position: relative;
 	top: 65px;
-	left: 125px;
+	left: 165px;
 	height: 20px;
 }
 
@@ -475,6 +489,25 @@ div#likes {
 	box-shadow: 0px 1px 0px 2px #222828;
 }
 
+.like-container a {
+	text-decoration: none;
+	cursor: pointer;
+	color: #ccc;
+	position: relative;
+	top: 4px;
+}
+
+.like-container a:hover {
+	text-decoration: underline;
+	color: white;
+}
+
+.like-container img {
+	width: 20px;
+	height: 20px;
+	top: 5px;
+}
+
 div#comments { 
 	background: orange;
 	padding: 5px 2px 10px 12px;
@@ -503,6 +536,3 @@ div#followers_view {
 	float: left;
 }
 
-body {
-	/*background: #d8d9d9;*/
-}

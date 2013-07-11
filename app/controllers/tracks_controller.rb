@@ -4,7 +4,7 @@ class TracksController < ApplicationController
 	
 	def create
 		# respond_with Track.create(params[:track])
-		track = Track.create(params[:track])
+		track = Track.create!(params[:track])
 
 		respond_to do |f|
 			f.html { redirect_to "/users#/profile" }

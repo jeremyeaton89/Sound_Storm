@@ -2,7 +2,11 @@
 	<hr>
 
 	<div class="image-container">
-		<img src="http://s3-us-west-2.amazonaws.com/soundstorm-development/users/profile_pictures/000/000/021/original/Screenshot_7_7_13_7_26_PM.png?1373250664">
+		<% if (track.escape('image_url').slice(-11) == "missing.png") { %>
+			<img src="/blank_track.png">
+		<% } else { %>
+			<img src="<%= track.escape('image_url') %>">
+		<% } %>
 	</div>
 
 	<div class="play-area">

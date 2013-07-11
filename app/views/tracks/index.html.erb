@@ -1,6 +1,6 @@
 <%= render partial: "shared/header" %>
 
-<h2>Check out new music from our community!</h2>
+<h1>Check out new music from our community!</h1>
 
 <div class="category all"></div>
 <div class="category pop"></div>
@@ -11,25 +11,32 @@
 <div class="category reggae"></div>
 <div class="category other"></div>
 
+<% Track.CATEGORIES.each do |category| %>
+	<h2><%= category.capitalize %></h2>
+	<div style="position: relative">
+	<ul class="carousel">
+		<div class="left disabled"></div>
+		<div class="right active"></div>	
+		<% Track.where(category: category).each do |track| %>
+		<li>
+			<div class="thumbnail">
+				<span class="carousel-track-name"><%= track.name %></span>
+				<% if track.image.url =~ /missing\.png/ %>
+					<img src="/blank_track.png">
+				<% else %>
+					<img src="<%= track.image.url %>">
+				<% end %>
+				<div class="play-button-thumbnail play">
+					<div class="symbol">
+						<div class="symbol1b"></div>
+						<div class="symbol2b"></div>
+					</div>
+				</div>
+				<audio src="<%= track.audio.url %>"></audio>
+			</div>
+		</li>
+		<% end %>
 
-<ul>
-	
-</ul>
-
-
-<ul>
-<% Track.all.each do |track| %>
-
-	<li>
-		<%= track.name %>
-		
-		
-		<audio src="<%= track.audio.url %>" controls="controls"></audio>
-
-
-		<audio src="<%= track.audio_url %>" controls="controls"></audio>
-		<hr>
-	</li>
-
+	</ul>
+	</div>
 <% end %>
-</ul>
