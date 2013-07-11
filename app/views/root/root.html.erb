@@ -1,8 +1,8 @@
 <header>
 	<ul>
 		<li><a href="#"><span class="icon-soundcloud"></span></a></li>
-		<li><%= link_to "Login", new_session_url %></li>
-		<li><%= link_to "SignUp", new_user_url %></li>
+		<li><%= link_to "Login", "#", class: "cover_login" %></li>
+		<li><%= link_to "SignUp", "#", class: "cover_signup" %></li>
 		<li><input type="text" class="search-bar" placeholder="Search..."></li>
 	</ul>
 </header>
@@ -10,5 +10,54 @@
 	Explore the Community of Sound.</pre>
 <img width="100%" height="auto" src="cover_page.jpg">
 
-<!-- <a class="header login" href="#">Login</a> or
-<a class="header signup" href="#">Sign Up</a> -->
+<div class="modal hidden">
+	<div z-index="10" class="login hidden">
+		<h2>Login</h2>
+		<a class="cover_signup" href="#">SignUp</a>
+
+
+		<form action="<%= session_url %>" method="post" autocomplete="off">
+ 
+			<input 
+				class="text-field"
+				type="text" 
+				name="user[username]" 
+				value="<%= @user ? @user.username : "" %>"
+				placeholder="Username"><br>
+
+			<input class="text-field" type="password" name="user[password]" placeholder="Password">
+			<br><br><br>
+			<button class="modal-submit" >Login</button>
+
+		</form>
+	</div>
+
+	<div class="signup hidden">
+		<h2>SignUp</h2>
+		<a class="cover_login" href="#">Login</a>
+
+
+		<form action="<%= users_url %>" method="post" enctype="multipart/form-data" autocomplete="off">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+
+			<input 
+			class="text-field" 
+			type="text" 
+			name="user[username]" 
+			value="<%= @user ? @user.username : "" %>"
+			placeholder="Username">
+			<br>
+
+			<input class="text-field" type="password" name="user[password]" placeholder="Password">
+			<br>
+
+			<input class="modal-submit" id="user_profile_field" name="user[profile_picture]" type="file">
+
+			<br><br><br>
+			<button class="modal-submit" >Sign Up</button>
+
+		</form>
+	</div>
+</div>
+
