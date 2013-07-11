@@ -7,18 +7,12 @@
 	<label>Username: 
 		<input type="text" name="user[username]" value="<%= @user.username %>">
 	</label><br>
-	<label>Password: <input type="password" name="user[password]"></label><br>
+
+	<label>Password: 
+		<input type="password" name="user[password]">
+	</label><br>
 
 	<input id="user_profile_field" name="user[profile_picture]" type="file">
 	<input type="submit" value="Sign Up">
 
-</form>
-
-<audio src="/My Song 2.m4a" controls="controls" type="audio/wav">
-	
-</audio>
-
-<form action="/tracks" method="post" enctype="multipart/form-data">
-	<input id="track_audio" name="track[audio]" type="file">
-	<input type="submit" value="submit">
 </form>

@@ -9,4 +9,8 @@ class Comment < ActiveRecord::Base
   def profile_picture_url
   	self.author.profile_picture.url
   end
+
+  def as_json(options = {})
+  	super(:include => :track)
+  end
 end

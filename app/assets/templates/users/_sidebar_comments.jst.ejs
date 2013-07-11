@@ -1,14 +1,14 @@
 <% var commentCount = SoundStorm.currentUser.comments.length %>
 <span><%= commentCount %> <%= commentCount == 1 ? "comment" : "comments" %></span>
-<a href="#/comments">View all</a>
+<a href="#/comments" class="view-all">View all</a>
 
-<ul>
-<% SoundStorm.currentUser.comments.each(function(comment) { %>
-	
-	<li>
-		on Song Name <%= comment.escape("content") %> 
-		<span class="create-date"><%= comment.escape("created_at") %></span>
-	</li>
-
+<div class="sidebar-comments-container">
+<% SoundStorm.currentUser.comments.sortBy(function(el) { return -el.get("created_at") } ).splice(0, 3).forEach(function(comment) { %>
+	<div class="sidebar-comment">
+		<img src="<%= SoundStorm.currentUser.escape('profile_picture_url') %>">
+		on <%= comment.get("track").name %>
+		<span class="create-date"><%= comment.escape("created_at").slice(0,10) %></span>
+		<%= comment.escape("content") %> 
+	</div>
 <% }); %>
-</ul>
+</div>

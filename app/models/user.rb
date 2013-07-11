@@ -46,8 +46,8 @@ class User < ActiveRecord::Base
       { :likes => { :include => [:track => { :methods => [:audio_url, :image_url]} ]}},
       { :play_sets => { :include => :tracks }},
       { :tracks => { :methods => [:audio_url, :image_url], :include => [:comments => { :methods => :profile_picture_url }] }},
-      :comments,
-      :followers,
+      { :comments => { :include => :track }},
+      { :followers => { :include => :tracks }},
       :followed_users 
     ])
   end

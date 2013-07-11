@@ -15,7 +15,6 @@ SoundStorm.Views.ProfileSidebar = Backbone.View.extend({
 
 	render: function() {
 		var content = this.template({ userAssets: this.userAssets });
-
 		this.$el.html(content);
 		return this;
 	}

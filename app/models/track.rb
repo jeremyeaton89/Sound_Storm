@@ -25,4 +25,8 @@ class Track < ActiveRecord::Base
   def self.CATEGORIES
     CATEGORIES
   end
+
+  def as_json(options = {})
+    super( methods: :image_url)
+  end
 end

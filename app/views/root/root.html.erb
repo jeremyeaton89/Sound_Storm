@@ -1,7 +1,14 @@
-<button class="home">Home</button>
+<header>
+	<ul>
+		<li><a href="#"><span class="icon-soundcloud"></span></a></li>
+		<li><%= link_to "Login", new_session_url %></li>
+		<li><%= link_to "SignUp", new_user_url %></li>
+		<li><input type="text" class="search-bar" placeholder="Search..."></li>
+	</ul>
+</header>
+<pre class="cover-text">Experience Sound Storm. 
+	Explore the Community of Sound.</pre>
+<img width="100%" height="auto" src="cover_page.jpg">
+
 <!-- <a class="header login" href="#">Login</a> or
 <a class="header signup" href="#">Sign Up</a> -->
-<%= link_to "Login", new_session_url %>
-<%= link_to "SignUp", new_user_url %>
-<span>Volume</span>
-<a class="header more" href="#">More</a>

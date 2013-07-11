@@ -8,7 +8,7 @@ class Like < ActiveRecord::Base
   validates_uniqueness_of :user_id, scope: :track_id
 
   def as_json(options = {}) 
-  	super(:include => :track)
+  	super(:include => [:track => { :methods => :image_url }])
   end
 
 end

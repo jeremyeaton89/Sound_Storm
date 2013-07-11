@@ -1,11 +1,15 @@
 <% var likeCount = SoundStorm.currentUser.likes.length %>
 <span class="sidebar-data"><%= likeCount %> <%= (likeCount == 1 ? "like" : "likes") %></span>
-<a href="#/likes">View all</a>
+<a href="#/likes" class="view-all">View all</a>
 
 <% _((SoundStorm.currentUser.likes.sortBy(function(like) { return like.created_at } )).reverse()).first(3).forEach(function(like) { %>
 
 	<div class="like-container">
-		<img src="<%= like.get('track').image_url %>">
+		<% if (like.get("track").image_url.slice(-11) == "missing.png") { %>
+			<img src="/blank_track.png">
+		<% } else { %>
+			<img src="<%= like.get("track").image_url %>">
+		<% } %>
 		<a href="#/tracks/<%= like.get('track').id %>"><%= like.get("track").name %></a>		
 	</div>
 

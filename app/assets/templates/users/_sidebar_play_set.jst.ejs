@@ -1,10 +1,11 @@
 <% var playSetCount = SoundStorm.currentUser.playSets.length %>
 <span class="sidebar-data"><%= playSetCount %> <%= (playSetCount == 1 ? "set" : "sets") %></span>
-<a href="#/play_sets">View all</a>
+<a href="#/play_sets" class="view-all">View all</a>
 
 <% _((SoundStorm.currentUser.playSets.sortBy(function(playSet) { return playSet.created_at } )).reverse()).first(3).forEach(function(playSet) { %>
 
 	<div class="play-set-container">
+		<img src="blank_track.png">
 		<a href="#/play_sets/<%= playSet.id %>"><%= playSet.get("name") %></a>		
 	</div>
 

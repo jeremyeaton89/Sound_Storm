@@ -176,8 +176,12 @@ $(function() {
 				$carousel.find(".left").removeClass("active").addClass("disabled");
 
 			}
-		})
-		;
+		});
+	})
+
+	// Volume Control
+	$("body").on("mouseover mouseout", ".volume", function(event) {
+		$(this).find(".volume-control").toggleClass("hidden");
 	})
 
 });	

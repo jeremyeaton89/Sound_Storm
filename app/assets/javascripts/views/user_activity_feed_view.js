@@ -126,7 +126,6 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 			}},
 			success: function(response) {
 				SoundStorm.currentUser.likes.add(new SoundStorm.Models.Like(response));
-
 				$(event.target).addClass("hidden");
 				$(event.target).siblings("button.unlike").removeClass("hidden");
 			}
