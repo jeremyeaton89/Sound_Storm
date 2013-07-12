@@ -16,16 +16,90 @@
  	letter-spacing: 4px;
  	color: orange;
  	padding: 10px;
- 	text-shadow: 0.1em 0.1em #3f3d3d
+ 	text-shadow: 0.1em 0.1em #3f3d3d;
  	margin-bottom: -20px;
+ 	margin-top: -10px;
  }
+
+.dashboard_sidebar {
+	box-sizing: border-box;
+	float: right;
+	width: 350px;
+	height: 600px;
+	border: 2px solid black;
+ 	border-radius: 15px;
+ 	color: #3f3d3d;
+ 	background: #3f3d3d;
+ 	border: 1px solid silver;
+ 	margin-right: 50px;
+	position: absolute;
+	left: 65%;
+	top: 100px;
+	padding: 20px 20px;
+}
+
+.to-follow-container {
+	opacity: 1;
+}
+
+.to-follow-widget {
+	box-sizing: border-box;
+	width: 80px;
+	height: 100px;
+	display: inline-block;
+	margin: 10px 10px;
+}
+
+.to-follow-widget img {
+	width: 78px;
+	height: 78px;
+}
+
+.to-follow-widget button {
+	margin-top: 5px;
+	width: 100%;
+	position: relative;
+	top: -22px;
+	border-radius: 10px;
+	background-color: #222828;
+	border: none;
+	font-size: 16px;
+	font-family: sans-serif;
+	color: #ccc;
+	height: 21px;
+}
+
+.to-follow-widget button:hover {
+	border: 1.5px solid gray;
+}
+
+.to-follow-widget span {
+	z-index: 11;
+	background: black;
+	color: orange;
+	opacity: 0.8;
+	height: 20px;
+	top: -82px;
+	white-space: nowrap;
+	position: relative;
+}
+
+.dashboard_sidebar h2 {
+	color: #ccc;
+	padding-left: 34px;
+	margin: 12px auto;
+}
+
+
  .feed-container {
+ 	float: left;
 	width: 600px;
 	margin-left: 45px;
  }
+
  .feed-container hr {
- 	width: 550px;
- 	left:0px;
+ 	width: 100%;
+ 	left: 0px;
  }
 
 .feed-container .pallet {

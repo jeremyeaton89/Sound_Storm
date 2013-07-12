@@ -100,7 +100,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 		$(event.target).siblings("button").removeClass("hidden");
 		var track = SoundStorm.currentUser.tracks.get($(event.target).attr("data-track-id"));
 		var playSet = SoundStorm.currentUser.playSets.get($(event.target).attr("data-play-set-id"));
-		debugger
+		// debugger
 		$.ajax({
 			url: "play_settings/1.json", //hackey?
 			type: "DELETE",

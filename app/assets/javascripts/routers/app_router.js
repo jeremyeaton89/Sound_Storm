@@ -22,6 +22,7 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 	index: function() {
 		var dashboardView = new SoundStorm.Views.DashboardView();
 		this.$rootEl.html(dashboardView.render().$el);
+		console.log("INDEX")
 	},
 
 	upload: function() {

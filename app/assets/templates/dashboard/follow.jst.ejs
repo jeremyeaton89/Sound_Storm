@@ -1,0 +1,15 @@
+<div class="dashboard_sidebar">
+	<h2>Creators to Follow</h2>
+	<div class="to-follow-container">
+		<% users.each(function(user) { %>
+
+			<div class="to-follow-widget">
+				<img src="<%= user.escape('profile_picture_url') %>">
+				<span class="dashboard_follow_username"><%= user.escape("username") %></span>
+				<button class="follow" data-user-id="<%= user.id %>">Follow</button>
+			</div>
+
+		<% }); %>
+		</ul>
+	</div>
+</div>
