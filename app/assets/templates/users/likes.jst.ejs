@@ -6,7 +6,7 @@
 
 	<% SoundStorm.currentUser.likes.each(function(like) { %>
 
-		<li>"<%= like.get("track").name %>" <audio src="<%= like.get("track").audio_url %>" controls></audio></li>
+		<li>"<a href="#/tracks/<%= like.get("track").id %>"><%= like.get("track").name %>"</a> <audio src="<%= like.get("track").audio_url %>" controls></audio></li>
 
 	<% }); %>
 

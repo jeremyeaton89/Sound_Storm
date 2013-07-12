@@ -21,6 +21,28 @@
  	margin-top: -10px;
  }
 
+/* .comments-show ul li {
+ 	background: black;
+ 	
+ }*/
+
+ .comments-show ul {
+ 	background: black;
+ 	opacity: 0.8;
+ 	font: 20px sans-serif;
+ 	color: #ccc;
+ 	margin-left: 20px;
+ 	list-style-type: none;
+ 	width: 500px;
+ 	border-radius: 20px;
+ 	padding-top: 10px;
+ 	border: 6px solid orange;
+ }
+
+.comments-show ul li {
+	margin: 5px 0;
+}
+
 .dashboard_sidebar {
 	box-sizing: border-box;
 	float: right;
@@ -88,6 +110,7 @@
 	color: #ccc;
 	padding-left: 34px;
 	margin: 12px auto;
+	border: 6px solid orange;
 }
 
 

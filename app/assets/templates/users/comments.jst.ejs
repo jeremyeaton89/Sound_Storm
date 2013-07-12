@@ -1,14 +1,16 @@
 <% commentsCount = SoundStorm.currentUser.comments.length %>
 
-<h2><%= commentsCount %> <%= commentsCount == 1 ? "Comment" : "Comments" %></h2>
+<div class="comments-show">
+	<h2><%= commentsCount %> <%= commentsCount == 1 ? "Comment" : "Comments" %></h2>
 
-<ul>
-	<% SoundStorm.currentUser.comments.each(function(comment) { %>
+	<ul>
+		<% SoundStorm.currentUser.comments.each(function(comment) { %>
 
-		<li>
-			<%= comment.escape("content") %> - on "<%= comment.get('track').name %>" [<%= comment.get("created_at").slice(0,10) %>]
-		</li>
+			<li>
+				- "<%= comment.escape("content") %>"" - on <%= comment.get('track').name %>, <%= comment.get("created_at").slice(0,10) %>
+			</li>
 
-	<% }); %>
+		<% }); %>
 
-</ul>
+	</ul>
+</div>
