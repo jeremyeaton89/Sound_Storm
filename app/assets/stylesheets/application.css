@@ -58,6 +58,7 @@
 	left: 65%;
 	top: 100px;
 	padding: 20px 20px;
+	border: 6px solid orange;
 }
 
 .to-follow-container {
@@ -69,7 +70,7 @@
 	width: 80px;
 	height: 100px;
 	display: inline-block;
-	margin: 10px 10px;
+	margin: 10px 8px;
 }
 
 .to-follow-widget img {
@@ -109,9 +110,7 @@
 .dashboard_sidebar h2 {
 	color: #ccc;
 	padding-left: 34px;
-	margin: 12px auto;
-	border: 6px solid orange;
-}
+	margin: 12px auto;}
 
 
  .feed-container {

@@ -14,6 +14,7 @@ SoundStorm.Views.DashboardView = Backbone.View.extend({
 			success: function(response) {
 
 				var allUsers = new SoundStorm.Collections.Users(response);
+				allUsers.remove(SoundStorm.currentUser.id);
 				var users = allUsers.filter(function(user) {
 					return (SoundStorm.currentUser.followedUsers.pluck("username").indexOf(user.get("username")) == -1) &&
 					(SoundStorm.currentUser.followers.pluck("username").indexOf(user.get("username")) == -1);
