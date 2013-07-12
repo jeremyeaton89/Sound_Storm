@@ -3,9 +3,9 @@
 
 	<div class="image-container">
 		<% if (track.image_url.slice(-11) == "missing.png") { %>
-			<img src="/blank_track.png">
+			<a href="#/tracks/<%= track.id %>"><img src="/blank_track.png"></a>
 		<% } else { %>
-			<img src="<%= track.image_url %>">
+			<a href="#/tracks/<%= track.id %>"><img src="<%= track.image_url %>"></a>
 		<% } %>
 	</div>
 

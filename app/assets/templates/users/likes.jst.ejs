@@ -1,0 +1,13 @@
+<% likeCount = SoundStorm.currentUser.likes.length %>
+
+<h2><%= likeCount %> <%= likeCount == 1 ? "Like" : "Likes" %></h2>
+
+<ul>
+
+	<% SoundStorm.currentUser.likes.each(function(like) { %>
+
+		<li>"<%= like.get("track").name %>" <audio src="<%= like.get("track").audio_url %>" controls></audio></li>
+
+	<% }); %>
+
+</ul>

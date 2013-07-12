@@ -1,0 +1,14 @@
+<h2><%= track.escape('name') %></h2>
+
+<% commentCount = track.comments.length %>
+<h3><%= commentCount %> <%= commentCount == 1 ? "Comment" : "Comments" %></h3>
+
+<p><audio src="<%= track.get("audio_url") %>" controls></audio>
+
+<ul>
+<% track.comments.forEach(function(comment) { %>
+
+	<li><%= comment.content %></li>	
+	
+<% }); %> 
+</ul>

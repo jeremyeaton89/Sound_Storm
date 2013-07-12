@@ -1,0 +1,13 @@
+<h2>Play Sets</h2>
+
+<div class="play-sets-container">
+
+	<% SoundStorm.currentUser.playSets.each(function(playSet) { %>
+
+		<div class="play-set-container">
+			<%= JST['play_sets/play_set']({ playSet: playSet }) %>
+		</div>
+
+	<% }); %>
+
+</div>

@@ -27,6 +27,6 @@ class Track < ActiveRecord::Base
   end
 
   def as_json(options = {})
-    super( methods: :image_url)
+    super( methods: [:image_url, :audio_url])
   end
 end

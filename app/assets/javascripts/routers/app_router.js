@@ -16,7 +16,8 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 		"play_sets/:id": "showPlaySet",
 		"play_sets": "showPlaySets",
 		"likes": "showLikes",
-		"followings": "followingsIndex"
+		"followings": "followingsIndex",
+		"comments": "showComments",
 	},
 
 	index: function() {
@@ -65,7 +66,7 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 		var that = this;
 		$.ajax({
 			url: "/followings",
-			type: "get",
+			type: "GET",
 			success: function(response) {
 				var followingsCompositeView = new SoundStorm.Views.FollowingsCompositeView({
 					collection: new SoundStorm.Collections.Followings(response)
@@ -73,5 +74,34 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 				that.$rootEl.html(followingsCompositeView.render().$el);
 			}
 		})
+	},
+
+	showTrack: function(id) {
+		console.log("TRACK SHOW")
+		var that = this;
+		$.ajax({
+			url: "/tracks/" + id,
+			type: "GET",
+			success: function(response) {
+				var track = new SoundStorm.Models.Track(response);
+				var trackView = new SoundStorm.Views.TrackView({ model: track });
+				that.$rootEl.html(trackView.render().$el);
+			}
+		})
+	},
+
+	showComments: function() {
+		var commentsView = new SoundStorm.Views.CommentsView();
+		this.$rootEl.html(commentsView.render().$el);
+	},
+
+	showPlaySets: function() {
+		var playSetView = new SoundStorm.Views.PlaySetsView();
+		this.$rootEl.html(playSetView.render().$el);
+	},
+
+	showLikes: function() {
+		var likesView = new SoundStorm.Views.LikesView();
+		this.$rootEl.html(likesView.render().$el);
 	}
 });
