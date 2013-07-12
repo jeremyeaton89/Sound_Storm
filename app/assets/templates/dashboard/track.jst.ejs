@@ -1,0 +1,55 @@
+<div class="widget track virgin" data-track-id="<%= track.id %>">
+	<hr>
+
+	<div class="image-container">
+		<% if (track.image_url.slice(-11) == "missing.png") { %>
+			<img src="/blank_track.png">
+		<% } else { %>
+			<img src="<%= track.image_url %>">
+		<% } %>
+	</div>
+
+	<div class="play-area">
+		<audio src="<%= track.audio_url %>"></audio>
+		<div class="name-container">
+			<div class="play-button play">
+				<div class="symbol">
+					<div class="symbol1"></div>
+					<div class="symbol2"></div>
+				</div>
+			</div>
+			<div class="name-inner-container">
+				<span class="track-name"><%= track.name %></span>
+				<span class="track-category"><span class="icon-tag"></span><%= track.category %></span>
+			</div>
+			
+		</div>
+		<div class="visualizer playable">
+			<div class="seeker-container">
+				<div class="comments">
+					<% track.comments.forEach(function(comment) { %>
+						<span class="comment-popup hidden" style="left: <%= comment.offset + 20%>px"><%= comment.content %></span>
+						<img class="comment-image" data-track-time="<%= comment.track_time %>" src="<%= comment.profile_picture_url %>" style="left: <%= comment.offset %>px;">
+					<% }); %>
+				</div>
+				<div class="seeker"></div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="pallet"></div>
+
+
+</div>
+<div class="comment-form hidden">
+	<!-- CSRF? -->
+	<img src="<%= user.escape('profile_picture_url') %>">
+	<form class="comment-form-tag">
+		<input type="text" class="comment-field" placeholder="write a comment..." name="comment[content]">
+		<input type="hidden" name="comment[author_id]" value="<%= user.id %>">
+		<input type="hidden" name="comment[track_id]" value="">
+		<input type="hidden" name="comment[offset]" value="">
+		<input type="hidden" name="comment[track_time]" value="">	
+	</form>
+</div>

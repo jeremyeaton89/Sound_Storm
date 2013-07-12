@@ -11,6 +11,26 @@
  *= require_self
  *= require_tree .
  */
+ h3 {
+ 	font: 18px sans-serif;
+ 	letter-spacing: 4px;
+ 	color: orange;
+ 	padding: 10px;
+ 	text-shadow: 0.1em 0.1em #3f3d3d
+ 	margin-bottom: -20px;
+ }
+ .feed-container {
+	width: 600px;
+	margin-left: 45px;
+ }
+ .feed-container hr {
+ 	width: 550px;
+ 	left:0px;
+ }
+
+.feed-container .pallet {
+	top: 30px;
+}
 
  .modal {
  	position: absolute;
@@ -59,6 +79,7 @@
  	border: 1px solid silver;
  	color: #3f3d3d;
  }
+ 
 .modal-submit {
 	margin-left: 20px;
 	background-color: #222828;
@@ -420,7 +441,7 @@ header a {
 }
 
 .comments span{
-	z-index: 4;
+	z-index: 6;
 	position: absolute;
 	top: 52px;
 	background: black;

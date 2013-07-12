@@ -151,11 +151,19 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 			success: function(model, data) {
 				$(event.target).find(".comment-field").val("")
 				var comment = JST['tracks/comment']({ comment: model });
-				// debugger
 				// var img = _.clone($(event.target).closest(".comment-form").prev(".widget").find("img.tiny-image").addClass("visible"));
-				$(event.target).closest(".comment-form").prev(".widget").find(".comments").append(comment)
+				console.log($(comment).siblings("span").css("left"))
 				// debugger
-				setTimeout(function() { $(comment).siblings("img").trigger("mouseout") }, 3000);
+				$(comment).siblings("span").css("left", "+=12px");
+				console.log($(comment).siblings("span").css("left"))
+
+				$(event.target).closest(".comment-form").prev(".widget").find(".comments").append(comment)
+				
+				// debugger
+				setTimeout(function() { 
+					$(comment).siblings("img").trigger("mouseover") 
+					$(comment).remove();
+				}, 3000);
 			}
 		});
 	},

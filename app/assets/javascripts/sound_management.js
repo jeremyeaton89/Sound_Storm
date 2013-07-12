@@ -114,6 +114,7 @@ $(function() {
 
 	//Comment hover
 	$("body").on("mouseover mouseout", ".comments img", function(event) {
+		console.log(event);
 		$(this).prev("span").toggleClass("hidden");
 		$(this).toggleClass("comment-image").toggleClass("comment-hover");
 	})

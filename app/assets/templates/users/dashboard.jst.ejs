@@ -1,10 +1,18 @@
 <h2>Dashboard</h2>
-
-<p>Dashboard stuff to come... </p>
+<h3>Your Following:</h3>
 
 <div class="feed-container">
-	<% SoundStorm.currentUser.followedUsers.sortBy(function(user) { return -(user.get("updated_at"))});
+	<% SoundStorm.currentUser.followedUsers.each(function(user) { %>
+
+		<% user.get("tracks").forEach(function(track) { %>
+
+			<%= JST['dashboard/track']({ user: user, track: track	}) %>
+
+		<% }); %>
 
 
+	<% }); %>
 
 </div>
+
+<div class="dashboard_sidebar"></div>

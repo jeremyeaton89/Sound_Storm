@@ -3,6 +3,7 @@
 <a href="#/comments" class="view-all">View all</a>
 
 <div class="sidebar-comments-container">
+	
 <% SoundStorm.currentUser.comments.sortBy(function(el) { return el.get("created_at") } ).splice(0, 3).forEach(function(comment) { %>
 	<div class="sidebar-comment">
 		<img src="<%= SoundStorm.currentUser.escape('profile_picture_url') %>">
