@@ -623,8 +623,8 @@ header a {
 }
 
 .focus {
-	"background-color": "#666666";
-	"border": "1px solid black";
+	background-color: #666666;
+	border: "1px solid black";
 }
 
 .comment-form form {
