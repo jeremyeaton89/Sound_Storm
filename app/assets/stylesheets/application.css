@@ -511,10 +511,10 @@ header a {
 	z-index: 5;
 	position: absolute;
 	float: left;
-	height: 18px;
-	width: 18px;
+	height: 19px;
+	width: 19px;
 	position: relative;
-	top: 54px;
+	top: 52px;
 	/*margin-right: -18px;*/
 	margin-bottom: -18px;
 	/*margin-left: -18px;*/

@@ -15,6 +15,7 @@
 //= require jquery.serializeJSON
 //= require underscore
 //= require backbone
+//= require sound_management
 //= require sound_storm
 //= require_tree ../templates
 //= require_tree ./models
@@ -22,3 +23,4 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+

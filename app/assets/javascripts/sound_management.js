@@ -4,7 +4,6 @@ $(function() {
 	// Seeking
 	$("body").on("click", ".seeker-container", function(event) {
 		interval = window.clearInterval(interval);		
-		// if ($(this).)
 
 		var $thisAudio = $(this).closest(".widget").find("audio");
 		$thisAudio[0].currentTime = (event.offsetX - 2)/ $(this).width() * $thisAudio[0].duration;
@@ -89,6 +88,7 @@ $(function() {
 
 	// Comment Form 
 	$("body").on("focus", "input.comment-field", function(event) {
+		// event.target.preventDefault();
 		event.preventDefault();
 		
 		var $formDiv = $(this).closest(".comment-form")
@@ -104,7 +104,6 @@ $(function() {
 		});
 		
 		// plug form with data
-		
 		$(this).siblings("input[name='comment[track_id]']")
 			.val($formDiv.prev(".widget").attr("data-track-id"));
 		$(this).siblings("input[name='comment[offset]']").val(offset);

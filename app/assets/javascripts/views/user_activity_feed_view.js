@@ -21,7 +21,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 		"click button.remove-song-from-play-set": "removeSong",
 		"click button.like": "createLike",
 		"click button.unlike": "removeLike",
-		"submit form.comment-form-tag": "createComment"
+		"submit form": "createComment"
 	},
 
 	popSetForm: function(event) {
@@ -100,7 +100,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 		$(event.target).siblings("button").removeClass("hidden");
 		var track = SoundStorm.currentUser.tracks.get($(event.target).attr("data-track-id"));
 		var playSet = SoundStorm.currentUser.playSets.get($(event.target).attr("data-play-set-id"));
-		// debugger
+
 		$.ajax({
 			url: "play_settings/1.json", //hackey?
 			type: "DELETE",
@@ -146,23 +146,19 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 
 	createComment: function(event) {
 		event.preventDefault();
+
 		var attrs = $(event.target).serializeJSON();
 		SoundStorm.currentUser.comments.create(attrs, { 
 			success: function(model, data) {
 				$(event.target).find(".comment-field").val("")
 				var comment = JST['tracks/comment']({ comment: model });
-				// var img = _.clone($(event.target).closest(".comment-form").prev(".widget").find("img.tiny-image").addClass("visible"));
-				console.log($(comment).siblings("span").css("left"))
-				// debugger
-				$(comment).siblings("span").css("left", "+=12px");
-				console.log($(comment).siblings("span").css("left"))
+				
 
 				$(event.target).closest(".comment-form").prev(".widget").find(".comments").append(comment)
 				
-				// debugger
 				setTimeout(function() { 
-					$(comment).siblings("img").trigger("mouseover") 
-					$(comment).remove();
+					$(".comment-hover.temp").removeClass("comment-hover").addClass("comment-image");
+					$(".comment-popup.temp").addClass("hidden");
 				}, 3000);
 			}
 		});

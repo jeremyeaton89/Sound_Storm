@@ -7,9 +7,15 @@
 <% SoundStorm.currentUser.comments.sortBy(function(el) { return el.get("created_at") } ).splice(0, 3).forEach(function(comment) { %>
 	<div class="sidebar-comment">
 		<img src="<%= SoundStorm.currentUser.escape('profile_picture_url') %>">
-		on <%= comment.get("track").name %>
+		on <% if (comment.get("track")) { %>
+			<%= comment.get("track").name  %>
+		<% } else { %>
+			"track"
+		<% } %>
+
 		<span class="create-date"><%= comment.escape("created_at").slice(0,10) %></span>
 		<%= comment.escape("content") %> 
 	</div>
 <% }); %>
 </div>
+ 
