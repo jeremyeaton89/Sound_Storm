@@ -159,6 +159,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 				setTimeout(function() { 
 					$(".comment-hover.temp").removeClass("comment-hover").addClass("comment-image");
 					$(".comment-popup.temp").addClass("hidden");
+					$(".temp").removeClass("temp");
 				}, 3000);
 			}
 		});

@@ -10,11 +10,11 @@
 		on <% if (comment.get("track")) { %>
 			<%= comment.get("track").name  %>
 		<% } else { %>
-			"track"
+			<%= $(".temp").closest(".widget").find(".track-name").html() %>
 		<% } %>
 
 		<span class="create-date"><%= comment.escape("created_at").slice(0,10) %></span>
-		<%= comment.escape("content") %> 
+		   "<%= comment.escape("content") %>"
 	</div>
 <% }); %>
 </div>
