@@ -113,7 +113,6 @@ $(function() {
 
 	//Comment hover
 	$("body").on("mouseover mouseout", ".comments img", function(event) {
-		console.log(event);
 		$(this).prev("span").toggleClass("hidden");
 		$(this).toggleClass("comment-image").toggleClass("comment-hover");
 	})
@@ -180,8 +179,13 @@ $(function() {
 	})
 
 	// Volume Control
-	$("body").on("mouseover mouseout", ".volume", function(event) {
-		$(this).find(".volume-control").toggleClass("hidden");
+	$(".volume").on("mouseover", function(event) {
+		console.log("MOUSE IN")
+		$(".volume-control").removeClass("hidden");
+	})
+	$(".volume").on("mouseout", function(event) {
+		console.log("MOUSE OUT")
+		$(".volume-control").addClass("hidden");
 	})
 
 });	
