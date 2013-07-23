@@ -216,7 +216,7 @@ header {
 	height: 25px;
 	width: 125px;
 	top: 0px;
-	left:745px;
+	left: 745px;
 	background: #ccc;
 }
 
@@ -225,7 +225,7 @@ header {
 	height:100%;
 	width: 50%;
 	background: orange;
-	border-right: 4px solid black;
+	border-right: 6px solid black;
 
 }
 
