@@ -1,14 +1,45 @@
-<div class="profile-widget widget play-set sound" data-play-set-id="<%= playSet.id %>">
-	<p><%= playSet.escape("name") %></p>
-	<p>Includes: <% if (playSet.get("tracks").length == 0) { %> 
-			<%= "Nothing!" %>
+<div class="widget play-set virgin" data-play-set-id="<%= playSet.id %>">
+	<hr>
+
+	<div class="image-container">
+		<!-- May need to change if decide to have other users' sets -->
+		<img src="<%= SoundStorm.currentUser.get("profile_picture_url") %>">
+	</div>
+
+	<div class="play-area">
+		<!--  audio play back -->
+		<div class="name-container">
+			<div class="play-button play">
+				<div class="symbol">
+					<div class="symbol1"></div>
+					<div class="symbol2"></div>
+				</div>
+			</div>
+			<div class="name-inner-container">
+				<span class="track-name"><%= playSet.escape("name") %></span>
+			</div>
+			
+		</div>
+		<div class="visualizer playable">
+			<div class="seeker-container">
+				<div class="seeker"></div>
+			</div>
+		</div>
+	</div>
+	
+
+	<div class="buttons-and-stats">
+		<a title="edit" href="#/play_sets/<%= playSet.id %>/edit"><button class="icon-pencil"></button></a>
+		<button title="delete set" class="remove-play-set icon-trash"></button>
+		<p>Includes: <% if (playSet.get("tracks").length == 0) { %> 
+			<%= "No Tracks." %>
 		<% } %>
 		
 		<% _(playSet.get("tracks")).each(function(track) { %>
 		<%= track.name + " " %>
 		<% }); %>
 	</p>
-	<button>Play</button>
-	<a href="#/play_sets/<%= playSet.id %>/edit">Edit</a>
-	<button class="remove">Remove</button>
+	</div>
+	
+	<div class="pallet"></div>
 </div>

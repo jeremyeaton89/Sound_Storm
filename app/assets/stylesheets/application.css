@@ -364,6 +364,7 @@ header a {
 }
 
 .widget {
+	position: relative;
 	margin-top: 40px;
 	margin-bottom: 80px;
 }
@@ -379,14 +380,14 @@ header a {
 }
 
 .pallet {
-	position: relative;
+	position: absolute;
 	z-index: -1;
 	height: 40px;
 	width: 300px;
 	border-radius: 20px;
 	background: #666666;
-	left: 80px;
-	top: 10px;
+	left: 60px;
+	top: 40px;
 }
 
 .play-button {
@@ -629,18 +630,19 @@ header a {
 }
 
 .play-set {
-	background: orange;
-}
-
-.repost {
-	background: yellow;
+	margin-bottom: 200px;
 }
 
 .add-to-set-popup {
-	z-index: -1;
-	/*height: 50px;
-	width: 60px;*/
-	background: gray;
+	position: absolute;
+	z-index: 3;
+	top: 181px;
+	left: 315px;
+	margin-right: -25px;
+	background: #ccc;
+	border-radius: 10px;
+	border: 1px solid #222828;
+	padding: 5px;
 }
 
 a.view-all {

@@ -32,7 +32,7 @@ $(function() {
 	});
 	
 	// Comment Field & Track buttons slide down on first click
-	$("body").on("click", ".play-button, .seeker-container", function() {
+	$("body").on("click", ".track .play-button, .seeker-container", function() {
 		if ($(this).closest(".widget").hasClass("track virgin")) {
 			$(this).closest(".widget").removeClass("virgin").find(".buttons-and-stats").animate({
 				"top": "120px"

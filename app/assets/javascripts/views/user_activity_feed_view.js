@@ -25,14 +25,14 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 	},
 
 	popSetForm: function(event) {
-		$(event.target).addClass("hidden");
-		$(event.target).closest(".track").after(JST['popups/add_to_set']({
+		$(event.target).attr("disabled", "true"); 
+		$(event.target).closest(".buttons-and-stats").after(JST['popups/add_to_set']({
 			trackId: $(event.target).attr("data-track-id")
 		}));		
 	},
 
 	removePopup: function(event) {
-		$(event.target).closest(".popup").siblings(".track").find("button.add-to-set").removeClass("hidden");
+		$(event.target).closest(".track").find("button.add-to-set").removeAttr("disabled"); 
 		$(event.target).closest(".popup").remove();
 	},
 
