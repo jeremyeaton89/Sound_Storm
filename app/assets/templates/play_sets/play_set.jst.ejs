@@ -8,6 +8,15 @@
 
 	<div class="play-area">
 		<!--  audio play back -->
+		<div style="position: absolute;">
+			<% _(playSet.get("tracks")).each(function(track, i) { %>
+				<% if (i == 0) { %>
+					<audio src="<%= track.audio_url %>"  class="current-track"></audio>
+				<% } else { %>
+					<audio src="<%= track.audio_url %>" ></audio>
+				<% } %>
+			<% }); %>
+		</div>
 		<div class="name-container">
 			<div class="play-button play">
 				<div class="symbol">

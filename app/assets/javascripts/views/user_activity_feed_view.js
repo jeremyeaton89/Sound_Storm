@@ -16,7 +16,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 		"click button.close": "removePopup",
 		"click button.submit": "createPlaySet",
 		"click .track button.remove": "removeTrack",
-		"click .play-set button.remove": "removePlaySet",
+		"click button.remove-play-set": "removePlaySet",
 		"click button.add-song-to-play-set": "addSong",
 		"click button.remove-song-from-play-set": "removeSong",
 		"click button.like": "createLike",
@@ -54,7 +54,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 
 		SoundStorm.currentUser.tracks.get(trackId).destroy({ 
 			success: function(model, response) {
-				console.log(model.get('name') + " deletion success!");
+				// $(event.target).closest(".track").next("")
 				$(event.target).closest(".track").remove();
 				if (SoundStorm.currentUser.likes.hasTrack(trackId)) {
 					var like = SoundStorm.currentUser.likes.findWhere({
@@ -72,7 +72,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 		SoundStorm.currentUser.playSets.get(playSetId).destroy({ 
 			success: function(model, response) {
 				console.log(model.get('name') + " deletion success!");
-				$(event.target).parent(".play-set").remove();
+				$(event.target).closest(".play-set").remove();
 			}
 		});
 	},

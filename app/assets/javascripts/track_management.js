@@ -5,7 +5,7 @@ $(function() {
 	$("body").on("click", ".seeker-container", function(event) {
 		interval = window.clearInterval(interval);		
 
-		var $thisAudio = $(this).closest(".widget").find("audio");
+		var $thisAudio = $(this).closest(".widget").find("audio:first");
 		$thisAudio[0].currentTime = (event.offsetX - 2)/ $(this).width() * $thisAudio[0].duration;
 		
 		// pause all audio
