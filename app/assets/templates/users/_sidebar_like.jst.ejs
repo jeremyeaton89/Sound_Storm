@@ -6,9 +6,9 @@
 
 	<div class="like-container">
 		<% if (like.get("track").image_url.slice(-11) == "missing.png") { %>
-			<img src="/blank_track.png">
+			<a href="#/tracks/<%= like.get('track').id %>"><img src="/blank_track.png"></a>
 		<% } else { %>
-			<img src="<%= like.get("track").image_url %>">
+			<a href="#/tracks/<%= like.get('track').id %>"><img src="<%= like.get("track").image_url %>"></a>
 		<% } %>
 		<a href="#/tracks/<%= like.get('track').id %>"><%= like.get("track").name %></a>		
 	</div>

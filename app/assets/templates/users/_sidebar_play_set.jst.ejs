@@ -5,7 +5,7 @@
 <% _((SoundStorm.currentUser.playSets.sortBy(function(playSet) { return playSet.created_at } )).reverse()).first(3).forEach(function(playSet) { %>
 
 	<div class="play-set-container">
-		<img src="blank_track.png">
+		<a href="#/play_sets/<%= playSet.id %>"><img src="blank_track.png"></a>
 		<a href="#/play_sets/<%= playSet.id %>"><%= playSet.get("name") %></a>		
 	</div>
 
