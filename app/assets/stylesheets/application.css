@@ -348,7 +348,24 @@ header a {
 	left: 20px;
 	margin-top: 14px;
 	margin-bottom: 25px;
-	/*border-radius: 10px;*/
+}
+
+#profile_info a {
+	color: black;
+	font-size: 12px;
+}
+
+#profile_info a:hover {
+	text-decoration: none;
+}
+
+#user_bio {
+	font-size: 14px;
+}
+
+#full_name {
+	font-style: bold;
+	letter-spacing: 2px;
 }
 
 .user-name {
@@ -370,6 +387,8 @@ header a {
 	left: 20px;
 	box-shadow: -2px 1px 0px 2px #ad611d;
 }
+
+/* Track & Play Set Styles */
 
 .track {
 	height: 120px;
@@ -779,6 +798,15 @@ div#comments {
 	top: 5px;
 	position: relative;
 	top: 4px;
+}
+
+.view-all {
+	font-size: 12px;
+}
+
+.sidebar-data {
+	font-style: bold;
+	letter-spacing: 2px
 }
 
 .sidebar-comment {

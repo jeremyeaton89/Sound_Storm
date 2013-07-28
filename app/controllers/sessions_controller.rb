@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
 		if @user && @user.verify_password(params[:user][:password])
 			login(@user)
-			redirect_to root_url
+			redirect_to "/users#/profile"
 		else
 			flash[:errors] = "Invalid Login"
 			redirect_to root_url

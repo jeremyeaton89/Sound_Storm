@@ -76,7 +76,6 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 	},
 
 	showTrack: function(id) {
-		console.log("TRACK SHOW")
 		var that = this;
 		$.ajax({
 			url: "/tracks/" + id,

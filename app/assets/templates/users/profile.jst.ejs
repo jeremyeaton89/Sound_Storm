@@ -3,7 +3,7 @@
 	class="profile-picture"
 	src="<%= user.escape('profile_picture_url') %>">
 <div id="profile_info">
-	<p><%= user.escape('first_name') %> <%= user.escape('last_name') %></p>
+	<p id="full_name"><%= user.escape('first_name') %> <%= user.escape('last_name') %></p>
 
 	<% followingCount = SoundStorm.currentUser.followers.length %>
 	<a href="#/followings"><%= followingCount %> <%= followingCount == 1 ? "follower" : "followers"%></a><br>

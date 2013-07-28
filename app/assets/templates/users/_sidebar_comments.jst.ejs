@@ -1,5 +1,5 @@
 <% var commentCount = SoundStorm.currentUser.comments.length %>
-<span><%= commentCount %> <%= commentCount == 1 ? "comment" : "comments" %></span>
+<span class="sidebar-data"><%= commentCount %> <%= commentCount == 1 ? "comment" : "comments" %></span>
 <a href="#/comments" class="view-all">View all</a>
 
 <div class="sidebar-comments-container">
