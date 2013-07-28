@@ -6,6 +6,13 @@ SoundStorm.Views.DashboardView = Backbone.View.extend({
 		"submit form": "createComment",
 		"click button.like": "createLike",
 		"click button.unlike": "removeLike",
+		"click button.add-to-set": "popSetForm",
+		"click button.close": "removePopup",
+		"click button.submit": "createPlaySet",
+		"click .track button.remove": "removeTrack",
+		"click button.remove-play-set": "removePlaySet",
+		"click button.add-song-to-play-set": "addSong",
+		"click button.remove-song-from-play-set": "removeSong",
 	},
 
 	render: function() {
@@ -83,5 +90,103 @@ SoundStorm.Views.DashboardView = Backbone.View.extend({
 				$(event.target).siblings("button.like").removeClass("hidden");		
 			}
 		});
+	},
+
+	popSetForm: function(event) {
+		//remove outstanding set popups
+		$(".add-to-set-popup").remove();
+		$(".add-to-set").removeAttr("disabled");
+
+		$(event.target).attr("disabled", "true"); 
+		$(event.target).closest(".buttons-and-stats").after(JST['popups/add_to_set']({
+			trackId: $(event.target).attr("data-track-id")
+		}));		
+	},
+
+	removePopup: function(event) {
+		$(event.target).closest(".track").find("button.add-to-set").removeAttr("disabled"); 
+		$(event.target).closest(".popup").remove();
+	},
+
+	createPlaySet: function(event) {
+		event.preventDefault();
+		var attrs = $(event.target.form).serializeJSON();
+		SoundStorm.currentUser.playSets.create(attrs, {
+			success: function(model, response) {
+				var $popup = $(event.target).closest("div.popup");
+				$popup.find("ul").append(JST['snippets/set']({ set: model}));
+				$popup.find("input[type='text']").val("");
+			}
+		});
+		
+	},
+
+	removeTrack: function(event) {
+		var trackId = $(event.target).closest(".track").attr("data-track-id");
+
+		SoundStorm.currentUser.tracks.get(trackId).destroy({ 
+			success: function(model, response) {
+				// $(event.target).closest(".track").next("")
+				$(event.target).closest(".track").remove();
+				if (SoundStorm.currentUser.likes.hasTrack(trackId)) {
+					var like = SoundStorm.currentUser.likes.findWhere({
+					user_id: SoundStorm.currentUser.id,
+					track_id: +trackId
+					});
+					SoundStorm.currentUser.likes.remove(like);
+				}
+			}
+		});
+	},
+
+	removePlaySet: function(event) {
+		var playSetId = $(event.target).closest(".play-set").attr("data-play-set-id");
+		SoundStorm.currentUser.playSets.get(playSetId).destroy({ 
+			success: function(model, response) {
+				console.log(model.get('name') + " deletion success!");
+				$(event.target).closest(".play-set").remove();
+			}
+		});
+	},
+	// add track to set
+	addSong: function(event) {
+		debugger
+		$(event.target).addClass("hidden");
+		$(event.target).siblings("button").removeClass("hidden");
+		var track = SoundStorm.currentUser.tracks.get($(event.target).closest(".widget").attr("data-track-id"));
+		var playSet = SoundStorm.currentUser.playSets.get($(event.target).attr("data-play-set-id"));
+		$.ajax({
+			url: "play_settings.json",
+			type: "POST",
+			data: { play_setting: { 
+				track_id: track.id,
+				play_set_id: playSet.id
+			}},
+			success: function(response) {
+				debugger
+				playSet.tracks.add(track);
+			}
+		});	
+	},
+
+	
+	// remove track from set
+	removeSong: function(event) {
+		$(event.target).addClass("hidden");
+		$(event.target).siblings("button").removeClass("hidden");
+		var track = SoundStorm.currentUser.tracks.get($(event.target).closest(".widget").attr("data-track-id"));
+		var playSet = SoundStorm.currentUser.playSets.get($(event.target).attr("data-play-set-id"));
+
+		$.ajax({
+			url: "play_settings/1.json", //hackey?
+			type: "DELETE",
+			data: { 
+				track_id: track.id,
+				play_set_id: playSet.id
+			},
+			success: function(response) {
+				playSet.tracks.remove(track);
+			}
+		});	
 	},
 });

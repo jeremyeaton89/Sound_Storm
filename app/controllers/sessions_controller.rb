@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 			redirect_to root_url
 		else
 			flash[:errors] = "Invalid Login"
-			render :new
+			redirect_to root_url
 		end
 	end
 

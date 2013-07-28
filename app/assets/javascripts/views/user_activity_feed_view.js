@@ -25,6 +25,10 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 	},
 
 	popSetForm: function(event) {
+		//remove outstanding set popups
+		$(".add-to-set-popup").remove();
+		$(".add-to-set").removeAttr("disabled");
+
 		$(event.target).attr("disabled", "true"); 
 		$(event.target).closest(".buttons-and-stats").after(JST['popups/add_to_set']({
 			trackId: $(event.target).attr("data-track-id")
@@ -98,7 +102,7 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 	removeSong: function(event) {
 		$(event.target).addClass("hidden");
 		$(event.target).siblings("button").removeClass("hidden");
-		var track = SoundStorm.currentUser.tracks.get($(event.target).attr("data-track-id"));
+		var track = SoundStorm.currentUser.tracks.get($(event.target).closest(".widget").attr("data-track-id"));
 		var playSet = SoundStorm.currentUser.playSets.get($(event.target).attr("data-play-set-id"));
 
 		$.ajax({

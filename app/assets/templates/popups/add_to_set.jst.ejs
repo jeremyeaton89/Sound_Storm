@@ -3,8 +3,8 @@
 	<% SoundStorm.currentUser.playSets.each(function(set) { %>
 		<li>
 			<%= set.escape('name') %>
-			<% if (SoundStorm.currentUser.playSets.get(100) && 
-							_(SoundStorm.currentUser.playSets.get(100).get("tracks")).any(function(track) { return track.id == trackId })) { %>
+			<% if (SoundStorm.currentUser.playSets.get(set.id) && 
+							_(SoundStorm.currentUser.playSets.get(set.id).get("tracks")).any(function(track) { return track.id == trackId })) { %>
 				<button 
 					class="add-song-to-play-set hidden" 
 					data-play-set-id="<%= set.id %>">Add</button>

@@ -11,12 +11,24 @@
  *= require_self
  *= require_tree .
  */
+ .errors {
+ 	position: absolute;
+ 	top: 60px;
+ 	left: 100px;
+ 	color: red;
+ 	font-family: sans-serif;
+ }
+
+ .errors p {
+ 	margin: 0px;
+ }
+
  h3 {
  	font: 18px sans-serif;
  	letter-spacing: 4px;
  	color: orange;
  	padding: 10px;
- 	text-shadow: 0.1em 0.1em #3f3d3d;
+ 	text-shadow: 0.1em 0.1em #3f3d3d; 
  	margin-bottom: -20px;
  	margin-top: -10px;
  }

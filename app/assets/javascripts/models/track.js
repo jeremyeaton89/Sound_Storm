@@ -4,11 +4,4 @@ SoundStorm.Models.Track = Backbone.Model.extend({
 		this.comments = new SoundStorm.Collections.Comments();
 	},
 
-	parse: function(response) {
-		debugger
-		// parse comments
-		return response;
-	},
-
-
 });

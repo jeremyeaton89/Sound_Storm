@@ -28,5 +28,6 @@ class Track < ActiveRecord::Base
 
   def as_json(options = {})
     super( methods: [:image_url, :audio_url])
+    # need to include comments and respective users for track show
   end
 end

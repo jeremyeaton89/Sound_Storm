@@ -7,7 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= flash[:errors] if flash[:errors] %>
+<% if flash[:errors] %>
+	<div class="errors">
+		<% if flash[:errors].class == Array %>
+			<% flash[:errors].each do |error| %>
+				<p><%= error %></p>			
+			<% end %>
+		<% else %>
+			<p><%= flash[:errors] %></p>
+		<% end %>
+	</div>
+<% end %>
 
 <%= yield %>
 

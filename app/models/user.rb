@@ -6,9 +6,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
   validates :password_digest, presence: true, length: { minimum: 6 }
-  # validates :city, presence: true, length: { minimum: 2 } 
 
-  # has_many :profile_images
   has_many :tracks, foreign_key: :owner_id
   has_many :play_sets, foreign_key: :owner_id, dependent: :destroy
 
@@ -25,7 +23,11 @@ class User < ActiveRecord::Base
   has_attached_file :profile_picture
 
   def password=(password)
-  	self.password_digest = BCrypt::Password.create(password)
+    if password.length < 6
+      self.errors[:base] << "Password must be at least 6 characters in length"
+    else
+      self.password_digest = BCrypt::Password.create(password)
+    end
   end
 
   def verify_password(password)
