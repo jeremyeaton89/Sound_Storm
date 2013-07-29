@@ -32,8 +32,18 @@
 
 .track-show-comment-form {
 	opacity: 1;
-	top: 220px;
-	left: 6px;
+	top: 455px;
+	left: 85px;
+}
+
+.track-show-comment-form {
+	position: absolute;
+}
+
+.track-show-comment-form .comment-field {
+	position: absolute;
+	left: 29px;
+	top: 4px;
 }
 
 .comment-list-container {

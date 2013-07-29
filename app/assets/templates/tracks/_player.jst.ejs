@@ -1,23 +1,26 @@
-<div class="play-area">
-	<audio src="<%= track.escape("audio_url") %>"></audio>
-	<div class="name-container">
-		<div class="play-button play">
-			<div class="symbol">
-				<div class="symbol1"></div>
-				<div class="symbol2"></div>
+<div class="widget track track-show" data-track-id="<%= track.id %>">
+	<div class="play-area">
+		<audio src="<%= track.escape("audio_url") %>"></audio>
+		<div class="name-container">
+			<div class="play-button play">
+				<div class="symbol">
+					<div class="symbol1"></div>
+					<div class="symbol2"></div>
+				</div>
 			</div>
+			
 		</div>
-		
-	</div>
-	<div class="visualizer playable">
-		<div class="seeker-container">
-			<div class="comments">
-				<% track.get("comments").forEach(function(comment) { %>
-					<span class="comment-popup hidden" style="left: <%= comment.offset + 20%>px"><%= comment.content %></span>
-					<img class="comment-image" data-track-time="<%= comment.track_time %>" src="<%= comment.author.profile_picture_url %>" style="left: <%= comment.offset %>px;">
-				<% }); %>
+		<div class="visualizer playable">
+			<div class="seeker-container">
+				<div class="comments">
+					<% track.get("comments").forEach(function(comment) { %>
+						<span class="comment-popup hidden" style="left: <%= comment.offset + 20%>px"><%= comment.content %></span>
+						<img class="comment-image" data-track-time="<%= comment.track_time %>" src="<%= comment.author.profile_picture_url %>" style="left: <%= comment.offset %>px;">
+					<% }); %>
+				</div>
+				<div class="seeker"></div>
+				<img class="tiny-image hidden" src="<%= SoundStorm.currentUser.get("profile_picture_url") %>">
 			</div>
-			<div class="seeker"></div>
 		</div>
 	</div>
 </div>

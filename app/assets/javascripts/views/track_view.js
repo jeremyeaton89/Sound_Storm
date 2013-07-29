@@ -3,6 +3,10 @@ SoundStorm.Views.TrackView = Backbone.View.extend({
 	className: "track-view",
 	template: JST['tracks/show'],
 
+	// events: {
+
+	// },
+
 	render: function() {
 		var content = this.template({ track: this.model });
 		this.$el.html(content);

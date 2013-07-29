@@ -7,9 +7,7 @@
 	</div>
 </div>
 
-<div class="widget track track-show" data-track-id="<%= track.id %>">
-	<%= JST['tracks/_player']({ track: track }) %>
-</div>
+<%= JST['tracks/_player']({ track: track }) %>
 
 <div class="comment-list-container">
 	<% commentCount = track.get("comments").length %>
