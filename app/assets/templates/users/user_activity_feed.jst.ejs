@@ -4,13 +4,9 @@
 
 		<%= JST['tracks/track']({track: asset}) %>
 
-	<% } else if (asset instanceof SoundStorm.Models.PlaySet ){ %>
-
-		<%= JST['play_sets/play_set']({playSet: asset}) %>
-
 	<% } else { %>
 
-		<%= JST['reposts/repost']({repost: asset}) %>
+		<%= JST['play_sets/play_set']({playSet: asset}) %>
 
 	<% } %>
 	

@@ -88,7 +88,6 @@ $(function() {
 
 	// Comment Form 
 	$("body").on("focus", "input.comment-field", function(event) {
-		// event.target.preventDefault();
 		event.preventDefault();
 		
 		var $formDiv = $(this).closest(".comment-form")

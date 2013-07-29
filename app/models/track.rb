@@ -12,7 +12,7 @@ class Track < ActiveRecord::Base
   has_attached_file :image
   CATEGORIES = %W(pop jazz/blues hiphop rock alternative reggae other)
   validates :name, :owner_id, presence: true
-  validates :category, presence: true, inclusion: { in: CATEGORIES }
+  validates :category, presence: true, inclusion: { :in => CATEGORIES }
 
   def audio_url
     self.audio.url
@@ -27,7 +27,12 @@ class Track < ActiveRecord::Base
   end
 
   def as_json(options = {})
-    super( methods: [:image_url, :audio_url])
-    # need to include comments and respective users for track show
+    super( 
+      :methods => [:image_url, :audio_url],
+      :include => [
+        {:comments => {:include => {:author => {:methods => :profile_picture_url}}}},
+        {:owner => { :methods => :profile_picture_url}}
+      ]
+    )
   end
 end

@@ -1,0 +1,85 @@
+.track-show {
+	float: left;
+}
+
+.track-show-info img {
+	width: 200px;
+	height: 200px;
+	float: left;
+}
+
+.track-info-container {
+	margin-left: 220px;
+}
+
+.track-view {
+	font-family: sans-serif;
+}
+
+.track-show {
+	left: -130px;
+	top: 20px;
+}
+
+.track-show .name-container {
+	top: 70px;
+	left: -60px;
+}
+
+.track-show .play-button {
+	top: -14px;
+}
+
+.track-show-comment-form {
+	opacity: 1;
+	top: 220px;
+	left: 6px;
+}
+
+.comment-list-container {
+	margin-left: 30px;
+	position: absolute;
+	top: 60px;
+	left: 45%;
+}
+
+.comment-list-container h3 {
+	margin: 10px 10px;
+}
+
+
+.comment-show-container {
+	display: block;
+	float: left;
+}
+
+.comment-show-container img {
+	width: 50px;
+	height: 50px;
+	/*float: left;*/
+}
+
+ul.comment-show-list {
+	list-style-type: none;
+	position: relative;
+}
+
+ul.comment-show-list li {
+	position: relative;
+	height: 55px;
+	width: 500px;
+}
+
+.username-and-time {
+	color: gray;
+	font-size: 12px;
+	position: absolute;
+	left: 62px;
+	top: -8px;
+}
+
+.comment-content {
+	position: absolute;
+	left: 72px;
+	top: 7px;
+}
