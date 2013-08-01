@@ -3,15 +3,6 @@
 <div id="content2">
 	<h1>Check out new music from our community!</h1>
 
-	<div class="category all"></div>
-	<div class="category pop"></div>
-	<div class="category jazz-blues"></div>
-	<div class="category hiphop"></div>
-	<div class="category rock"></div>
-	<div class="category alternative"></div>
-	<div class="category reggae"></div>
-	<div class="category other"></div>
-
 	<% Track.CATEGORIES.each do |category| %>
 		<h2><%= category.capitalize %></h2>
 		<div style="position: relative">
@@ -21,7 +12,7 @@
 			<% Track.where(category: category).each do |track| %>
 			<li>
 				<div class="thumbnail">
-					<span class="carousel-track-name"><%= track.name %></span>
+					<a href="users#/tracks/<%=  track.id %>"><span class="carousel-track-name"><%= track.name %></span></a>
 					<% if track.image.url =~ /missing\.png/ %>
 						<img src="/blank_track.png">
 					<% else %>

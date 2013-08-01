@@ -4,12 +4,19 @@ class TracksController < ApplicationController
 	
 	def create
 		# respond_with Track.create(params[:track])
-		track = Track.create!(params[:track])
-
-		respond_to do |f|
-			f.html { redirect_to "/users#/profile" }
-			f.json { render :json => track }
+		debugger
+		@track = Track.create(params[:track])
+		if @track.valid?
+			flash[:notice] = "Upload Success!"
+			redirect_to "/users#/profile"
+		else
+			flash[:errors] = @track.errors.full_messages
+			render :new
 		end
+		# respond_to do |f|
+		# 	f.html { redirect_to "/users#/profile" }
+		# 	f.json { render :json => track }
+		# end
 	end
 
 	def destroy

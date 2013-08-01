@@ -11,7 +11,7 @@ class Track < ActiveRecord::Base
   has_attached_file :audio
   has_attached_file :image
   CATEGORIES = %W(pop jazz/blues hiphop rock alternative reggae other)
-  validates :name, :owner_id, presence: true
+  validates :name, :owner_id, :audio, presence: true
   validates :category, presence: true, inclusion: { :in => CATEGORIES }
 
   def audio_url

@@ -26,6 +26,14 @@
 	margin: 0 10px;
 }
 
+.thumbnail a {
+	text-decoration: none;
+}
+
+.thumbnail a:hover {
+	text-decoration: underline;
+}
+
 .carousel img {
 	display: block;
 	position: relative;
