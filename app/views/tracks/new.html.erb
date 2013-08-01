@@ -1,41 +1,43 @@
 <%= render partial: "shared/header" %>
 
 <div id="content2">
-	<h1>Add Track</h1>
+	<div class="add-track-container">
+		<h1>Add Track</h1>
 
-	<form action="/tracks" method="post" enctype="multipart/form-data">
-		<input 
-			type="hidden" 
-			name="authenticity_token" 
-			value="<%= form_authenticity_token %>">
+		<form action="/tracks" method="post" enctype="multipart/form-data">
+			<input 
+				type="hidden" 
+				name="authenticity_token" 
+				value="<%= form_authenticity_token %>">
 
-		<label for="track_name">Name</label><br>
-		<input type="text" name="track[name]"><br>
+			<label for="track_name">Name</label><br>
+			<input type="text" name="track[name]"><br>
 
-		<label for="track_audio_file">Track</label><br>
-		<input id="track_audio_file" name="track[audio]" type="file"><br>
+			<label for="track_audio_file">Track</label><br>
+			<input id="track_audio_file" name="track[audio]" type="file"><br>
 
-		<label for="track_image_file">Image</label><br>
-		<input id="track_image_file" name="track[image]" type="file"><br>
+			<label for="track_image_file">Image</label><br>
+			<input id="track_image_file" name="track[image]" type="file"><br>
 
-		<label for="track_category">Category</label>
-		<select id="track_category" name="track[category]">
-			<option value="pop">Pop</option>
-			<option value="jazz/blues">Jazz/Blues</option>
-			<option value="hiphop">Hip Hop</option>
-			<option value="rock">Rock</option>
-			<option value="alternative">Alternative</option>
-			<option value="reggae">Reggae</option>
-			<option value="other">Other</option>
-		</select>
+			<label for="track_category">Category</label>
+			<select id="track_category" name="track[category]">
+				<option value="pop">Pop</option>
+				<option value="jazz/blues">Jazz/Blues</option>
+				<option value="hiphop">Hip Hop</option>
+				<option value="rock">Rock</option>
+				<option value="alternative">Alternative</option>
+				<option value="reggae">Reggae</option>
+				<option value="other">Other</option>
+			</select>
 
-		<br>
+			<br>
 
-		<input 
-			type="hidden" 
-			name="track[owner_id]" 
-			value="<%= current_user.id %>">
-		
-		<input type="submit">
-	</form>
+			<input 
+				type="hidden" 
+				name="track[owner_id]" 
+				value="<%= current_user.id %>">
+			
+			<input type="submit">
+		</form>
+	</div>
 </div>
