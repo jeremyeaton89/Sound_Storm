@@ -11,6 +11,13 @@
  *= require_self
  *= require_tree .
  */
+
+ #content, #content2 {
+ 	position: relative;
+ 	top: 50px;
+ 	padding-bottom: 50px;
+ }
+ 
  .errors {
  	position: absolute;
  	top: 60px;
@@ -63,7 +70,7 @@
  	margin-right: 50px;
 	position: absolute;
 	left: 65%;
-	top: 100px;
+	top: 10px;
 	padding: 20px 20px;
 	border: 6px solid orange;
 }
@@ -104,7 +111,7 @@
 }
 
 .to-follow-widget span {
-	z-index: 11;
+	z-index: 9;
 	background: black;
 	color: orange;
 	opacity: 0.8;
@@ -214,13 +221,21 @@ h2 {
 	letter-spacing: 3px;
 }
 
+.bump header{
+	margin-top: -20px;
+}
+
 header {
-	margin: -10px -10px 0px -10px;
+	margin: -11px -10px 0px -10px;
+	padding-top: 11px;
 	background-color: #3f3d3d;
 	/*border-bottom-radius: 1em; */
-	height: 50px;
+	height: 40px;
 	font-family: sans-serif;
 	color: #ccc;
+	position: fixed;
+	width: 100%;
+	z-index: 10;
 }
 
 .volume-control {
@@ -307,6 +322,8 @@ header a {
 } 
 
 .left-column {
+	position: fixed;
+	top: 48px;
 	margin-left: 10px;
 	background-color: #3f3d3d;
 	width: 180px;
@@ -321,6 +338,9 @@ header a {
 }
 
 .middle-column {
+	position: relative;
+	left: 260px;
+	top: 41px;
 	width: 600px;
 	float: left;
 	margin: 24px 3% 25px 2%;
@@ -330,8 +350,9 @@ header a {
 }
 
 .right-column {
-	position: relative;
-	float: left;
+	position: fixed;
+	left: 77%;
+	top: 45px;
 	margin: 24px 0px;
 	padding: 25px 15px 25px 15px;	
 	background-color: #3f3d3d;

@@ -31,7 +31,8 @@ class Track < ActiveRecord::Base
       :methods => [:image_url, :audio_url],
       :include => [
         {:comments => {:include => {:author => {:methods => :profile_picture_url}}}},
-        {:owner => { :methods => :profile_picture_url}}
+        {:owner => {:methods => :profile_picture_url}},
+        {:likers => {:methods => :profile_picture_url}}
       ]
     )
   end

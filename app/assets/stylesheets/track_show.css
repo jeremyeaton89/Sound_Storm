@@ -53,11 +53,6 @@
 	left: 45%;
 }
 
-.comment-list-container h3 {
-	margin: 10px 10px;
-}
-
-
 .comment-show-container {
 	display: block;
 	float: left;
@@ -66,7 +61,6 @@
 .comment-show-container img {
 	width: 50px;
 	height: 50px;
-	/*float: left;*/
 }
 
 ul.comment-show-list {
@@ -93,3 +87,25 @@ ul.comment-show-list li {
 	left: 72px;
 	top: 7px;
 }
+
+.like-list-container {
+	margin-left: 30px;
+	position: absolute;
+	top: 60px;
+	left: 72%;
+}
+
+.like-show-container img {
+	width: 50px;
+	height: 50px;
+}
+
+ul.like-show-list {
+	list-style-type: none;
+	position: relative;
+}
+
+ul.like-show-list li {
+	position: relative;
+	height: 55px;
+	width: 250px;

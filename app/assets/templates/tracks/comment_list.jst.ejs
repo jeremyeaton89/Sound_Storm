@@ -1,0 +1,19 @@
+<% commentCount = comments.length %>
+<h3><%= commentCount %> <%= commentCount == 1 ? "Comment" : "Comments" %></h3>
+
+<ul class="comment-show-list">
+<% comments.sort().each(function(comment) { %>
+
+	<li>
+		<div class="comment-show-container">
+			<img src="<%= comment.get("author").profile_picture_url %>">
+			<p class="username-and-time">
+				<% var second = (comment.get("track_time") == 1 ? "second" : "seconds") %>
+				<%= comment.get("author").username %> at <%= comment.escape("track_time") %> <%= second %>
+			</p>
+			<p class="comment-content">"<%= comment.escape("content") %>"</p>
+		</div>
+	</li>	
+	
+<% }); %> 
+</ul>

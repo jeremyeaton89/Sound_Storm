@@ -9,25 +9,3 @@
 
 <%= JST['tracks/_player']({ track: track }) %>
 
-<div class="comment-list-container">
-	<% commentCount = track.get("comments").length %>
-	<h3><%= commentCount %> <%= commentCount == 1 ? "Comment" : "Comments" %></h3>
-
-	<ul class="comment-show-list">
-	<% track.get("comments").sort(function(a, b){ return a.track_time > b.track_time })
-			.forEach(function(comment) { %>
-
-		<li>
-			<div class="comment-show-container">
-				<img src="<%= comment.author.profile_picture_url %>">
-				<p class="username-and-time">
-					<% var second = (comment.track_time == 1 ? "second" : "seconds") %>
-					<%= comment.author.username %> at <%= comment.track_time %> <%= second %>
-				</p>
-				<p class="comment-content">"<%= comment.content %>"</p>
-			</div>
-		</li>	
-		
-	<% }); %> 
-	</ul>
-</div>

@@ -82,8 +82,8 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 			type: "GET",
 			success: function(response) {
 				var track = new SoundStorm.Models.Track(response);
-				var trackView = new SoundStorm.Views.TrackView({ model: track });
-				that.$rootEl.html(trackView.render().$el);
+				var trackCompositeView = new SoundStorm.Views.TrackCompositeView({ model: track });
+				that.$rootEl.html(trackCompositeView.render().$el);
 			}
 		})
 	},

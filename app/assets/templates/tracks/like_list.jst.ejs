@@ -1,0 +1,15 @@
+<% likeCount = likers.length %>
+<h3><%= likeCount %> <%= likeCount == 1 ? "Like" : "Likes" %></h3>
+
+<ul class="like-show-list">
+<% likers.each(function(user) { %>
+
+	<li>
+		<div class="like-show-container">
+			<img src="<%= user.escape("profile_picture_url") %>">
+			
+		</div>
+	</li>	
+	
+<% }); %> 
+</ul>

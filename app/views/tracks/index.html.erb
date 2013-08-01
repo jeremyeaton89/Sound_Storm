@@ -1,42 +1,44 @@
-<%= render partial: "shared/header" %>
+<div class="bump"><%= render partial: "shared/header" %></div>
 
-<h1>Check out new music from our community!</h1>
+<div id="content2">
+	<h1>Check out new music from our community!</h1>
 
-<div class="category all"></div>
-<div class="category pop"></div>
-<div class="category jazz-blues"></div>
-<div class="category hiphop"></div>
-<div class="category rock"></div>
-<div class="category alternative"></div>
-<div class="category reggae"></div>
-<div class="category other"></div>
+	<div class="category all"></div>
+	<div class="category pop"></div>
+	<div class="category jazz-blues"></div>
+	<div class="category hiphop"></div>
+	<div class="category rock"></div>
+	<div class="category alternative"></div>
+	<div class="category reggae"></div>
+	<div class="category other"></div>
 
-<% Track.CATEGORIES.each do |category| %>
-	<h2><%= category.capitalize %></h2>
-	<div style="position: relative">
-	<ul class="carousel">
-		<div class="left disabled"></div>
-		<div class="right active"></div>	
-		<% Track.where(category: category).each do |track| %>
-		<li>
-			<div class="thumbnail">
-				<span class="carousel-track-name"><%= track.name %></span>
-				<% if track.image.url =~ /missing\.png/ %>
-					<img src="/blank_track.png">
-				<% else %>
-					<img src="<%= track.image.url %>">
-				<% end %>
-				<div class="play-button-thumbnail play">
-					<div class="symbol">
-						<div class="symbol1b"></div>
-						<div class="symbol2b"></div>
+	<% Track.CATEGORIES.each do |category| %>
+		<h2><%= category.capitalize %></h2>
+		<div style="position: relative">
+		<ul class="carousel">
+			<div class="left disabled"></div>
+			<div class="right active"></div>	
+			<% Track.where(category: category).each do |track| %>
+			<li>
+				<div class="thumbnail">
+					<span class="carousel-track-name"><%= track.name %></span>
+					<% if track.image.url =~ /missing\.png/ %>
+						<img src="/blank_track.png">
+					<% else %>
+						<img src="<%= track.image.url %>">
+					<% end %>
+					<div class="play-button-thumbnail play">
+						<div class="symbol">
+							<div class="symbol1b"></div>
+							<div class="symbol2b"></div>
+						</div>
 					</div>
+					<audio src="<%= track.audio.url %>"></audio>
 				</div>
-				<audio src="<%= track.audio.url %>"></audio>
-			</div>
-		</li>
-		<% end %>
+			</li>
+			<% end %>
 
-	</ul>
-	</div>
-<% end %>
+		</ul>
+		</div>
+	<% end %>
+</div>
