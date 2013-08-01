@@ -1,0 +1,74 @@
+.modal {
+ 	position: absolute;
+ 	z-index: 10;
+ 	margin: auto;
+ 	top: 30%;
+ 	left: 53%;
+ 	width: 300px;
+ 	height: 330px;
+ 	border: 2px solid black;
+ 	border-radius: 15px;
+ 	color: #3f3d3d;
+ 	background: black;
+ 	opacity: 0.8;
+ 	border: 1px solid silver;
+ }
+
+ .modal h2 {
+ 	font-size: 40px;
+ 	padding-left: 25px;
+ }
+
+ .modal a {
+ 	position: absolute;
+ 	right: 10%;
+ 	top: 16%;
+ 	color: #ccc;
+ 	text-decoration: none;
+ 	font-family: sans-serif;
+ }
+
+  .modal a:hover {
+  	text-decoration: underline
+  }
+
+ .modal input.text-field {
+ 	width: 250px;
+ 	height: 30px;
+ 	border-radius: 15px;
+ 	font-size: 22px;
+ 	background-color: transparent;
+ 	margin-left: 20px;
+ 	margin-bottom: 15px;
+ 	outline: none;
+ 	padding-left: 15px;
+ 	border: 1px solid silver;
+ 	color: #3f3d3d;
+ }
+ 
+.modal-submit {
+	margin-left: 20px;
+	background-color: #222828;
+	color: #ccc;
+	border: 1px solid white;
+	cursor: pointer;
+	font-family: sans-serif;
+	font-size: 16px;
+	border-radius: 10px;
+	padding: 2px 4px;
+	width: 100px;
+}
+
+.modal-submit:hover {
+	background: transparent;
+}
+
+pre.cover-text {
+	position: absolute;
+	font: 35px sans-serif;
+	color: white;
+	background: black;
+	opacity: 0.5;
+	left: 40%;
+	height: 85px;
+}
