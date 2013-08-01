@@ -31,13 +31,10 @@
 }
 
 .track-show-comment-form {
-	opacity: 1;
-	top: 455px;
-	left: 85px;
-}
-
-.track-show-comment-form {
 	position: absolute;
+	opacity: 1;
+	top: 400px;
+	left: 76px;
 }
 
 .track-show-comment-form .comment-field {
@@ -49,8 +46,8 @@
 .comment-list-container {
 	margin-left: 30px;
 	position: absolute;
-	top: 60px;
 	left: 45%;
+	top: 0px;
 }
 
 .comment-show-container {
@@ -64,6 +61,7 @@
 }
 
 ul.comment-show-list {
+	margin-top: 35px;
 	list-style-type: none;
 	position: relative;
 }
@@ -91,8 +89,8 @@ ul.comment-show-list li {
 .like-list-container {
 	margin-left: 30px;
 	position: absolute;
-	top: 60px;
 	left: 72%;
+	top: 0px;
 }
 
 .like-show-container img {
@@ -101,6 +99,7 @@ ul.comment-show-list li {
 }
 
 ul.like-show-list {
+	margin-top: 35px;
 	list-style-type: none;
 	position: relative;
 }

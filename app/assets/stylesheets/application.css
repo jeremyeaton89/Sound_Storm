@@ -17,7 +17,7 @@
  	top: 50px;
  	padding-bottom: 50px;
  }
- 
+
  .errors {
  	position: absolute;
  	top: 60px;
@@ -226,7 +226,7 @@ h2 {
 }
 
 header {
-	margin: -11px -10px 0px -10px;
+	margin: -22px -10px 0px -10px;
 	padding-top: 11px;
 	background-color: #3f3d3d;
 	/*border-bottom-radius: 1em; */
@@ -340,7 +340,7 @@ header a {
 .middle-column {
 	position: relative;
 	left: 260px;
-	top: 41px;
+	top: -8px;
 	width: 600px;
 	float: left;
 	margin: 24px 3% 25px 2%;
