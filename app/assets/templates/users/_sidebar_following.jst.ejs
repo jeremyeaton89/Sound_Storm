@@ -1,3 +1,16 @@
 <% followingCount = SoundStorm.currentUser.followedUsers.length %>
 <span class="sidebar-data"><%= followingCount %> following</span>
 <a href="#/followings" class="view-all">View all</a>
+
+<% SoundStorm.currentUser.followedUsers.first(3).forEach(function(user) { %>
+
+	<div class="like-container">
+		<% if (user.escape("profile_picture_url").slice(-11) == "missing.png") { %>
+			<img src="/blank_profile.gif">
+		<% } else { %>
+			<img src="<%= user.escape("profile_picture_url") %>">
+		<% } %>
+		<span><%= user.escape("username") %></span>		
+	</div>
+
+<% }); %>

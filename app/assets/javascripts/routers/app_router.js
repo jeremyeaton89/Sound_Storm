@@ -93,9 +93,16 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 		this.$rootEl.html(commentsView.render().$el);
 	},
 
-	showPlaySets: function() {
-		var playSetView = new SoundStorm.Views.PlaySetsView();
+	showPlaySet: function(id) {
+		var playSetView = new SoundStorm.Views.PlaySetView({ 
+			model: SoundStorm.currentUser.playSets.get(id) 
+		});
 		this.$rootEl.html(playSetView.render().$el);
+	},
+
+	showPlaySets: function() {
+		var playSetsView = new SoundStorm.Views.PlaySetsView();
+		this.$rootEl.html(playSetsView.render().$el);
 	},
 
 	showLikes: function() {

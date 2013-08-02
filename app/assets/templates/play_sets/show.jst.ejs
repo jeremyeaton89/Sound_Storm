@@ -1,0 +1,15 @@
+<h2>Set: <%=  playSet.escape("name") %></h2>
+
+<ul>
+
+	<% playSet.get("tracks").forEach(function(track) { %>
+
+		<li>"
+			<a href="#/tracks/<%= track.id %>"><%= track.name %>"</a> 
+			<audio src="<%= track.audio_url %>" controls></audio>
+			<button class="remove" data-id="<%= track.id %>">Remove</button>
+		</li>
+
+	<% }); %>
+
+</ul>

@@ -2,12 +2,12 @@
 
 <div class="play-sets-container">
 
+	<ul>
 	<% SoundStorm.currentUser.playSets.each(function(playSet) { %>
 
-		<div class="play-set-container">
-			<%= JST['play_sets/play_set']({ playSet: playSet }) %>
-		</div>
+		<li><a href="/users#/play_sets/<%= playSet.id %>"><%= playSet.escape("name") %></a> (<%= playSet.get("tracks").length %>)
 
 	<% }); %>
+	</ul>
 
 </div>
