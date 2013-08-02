@@ -32,7 +32,11 @@ SoundStorm.Views.UserActivityFeedView = Backbone.View.extend({
 		$(event.target).attr("disabled", "true"); 
 		$(event.target).closest(".buttons-and-stats").after(JST['popups/add_to_set']({
 			trackId: $(event.target).attr("data-track-id")
-		}));		
+		}));
+
+		// offset popup if comment form popped
+		if (!$(event.target).closest(".widget").hasClass("virgin")) 
+			$(event.target).closest(".buttons-and-stats").next(".popup").css("top", "+=55");
 	},
 
 	removePopup: function(event) {

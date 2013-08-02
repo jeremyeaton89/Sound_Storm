@@ -1,7 +1,8 @@
 <span class="user-name"><%= user.escape('username') %></span><br>
 <img 
 	class="profile-picture"
-	src="<%= user.escape('profile_picture_url') %>">
+	src="<%= user.escape('profile_picture_url').match("missing\.png$") ? 
+						'blank_profile.gif' : user.escape('profile_picture_url')%>">
 <div id="profile_info">
 	<p id="full_name"><%= user.escape('first_name') %> <%= user.escape('last_name') %></p>
 

@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def profile_picture_url
-    self.profile_picture.url
+    self.profile_picture.url || "blank_profile.gif"
   end
 
   def as_json(options = {})

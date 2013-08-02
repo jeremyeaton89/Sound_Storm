@@ -27,7 +27,7 @@
 }
 
 .track-show .play-button {
-	top: -14px;
+	top: -11px;
 }
 
 .track-show-comment-form {
@@ -40,7 +40,7 @@
 .track-show-comment-form .comment-field {
 	position: absolute;
 	left: 29px;
-	top: 4px;
+	top: 6px;
 }
 
 .comment-list-container {
