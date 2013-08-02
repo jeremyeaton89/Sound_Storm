@@ -10,7 +10,7 @@
 	<a href="#/followings"><%= followingCount %> <%= followingCount == 1 ? "follower" : "followers"%></a><br>
 
 	<a href="#/profile/edit" id="profile_edit">Edit</a>
-	<button id="share">Share</button>
+	<button id="share" class="hidden">Share</button>
 		
 	<p id="user_bio"><%= user.escape('bio') %></p>
 </div>

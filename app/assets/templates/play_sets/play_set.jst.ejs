@@ -8,12 +8,13 @@
 
 	<div class="play-area">
 		<!--  audio play back -->
-		<div style="position: absolute;">
+		<div class="audio-tags">
 			<% _(playSet.get("tracks")).each(function(track, i) { %>
-				<% var audio = new Audio(); %>
-				<% audio.src = "<%= track.audio_url %>" %>
-				<% audio.autoplay = true %>
-				audio
+				<% if (i == 0) { %>
+					<audio src="<%= track.audio_url %>" class="current-track" onended="playNext()"></audio>
+				<% } else { %>
+					<audio src="<%= track.audio_url %>" onended="playNext()"></audio>
+				<% } %>
 			<% }); %>
 		</div>
 		<div class="name-container">

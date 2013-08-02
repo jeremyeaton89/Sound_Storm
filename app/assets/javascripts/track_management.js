@@ -1,8 +1,8 @@
 $(function() {
-	var interval = window.setInterval();
+	interval = window.setInterval();
 
 	// Seeking
-	$("body").on("click", ".seeker-container", function(event) {
+	$("body").on("click", ".track .seeker-container", function(event) {
 		interval = window.clearInterval(interval);		
 
 		var $thisAudio = $(this).closest(".widget").find("audio:first");
