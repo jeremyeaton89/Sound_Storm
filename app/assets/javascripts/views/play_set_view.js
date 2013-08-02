@@ -15,7 +15,7 @@ SoundStorm.Views.PlaySetView = Backbone.View.extend({
 
 	removeTrack: function(event) {
 		var trackId = $(event.target).attr("data-id");
-		debugger
+
 		var that = this;
 		$.ajax({
 			url: "play_settings/1.json", //hackey?
