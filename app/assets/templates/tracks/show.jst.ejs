@@ -1,5 +1,8 @@
 <div class="track-show-info">
-	<img src="<%= track.escape("image_url") %>">
+	<% var imgUrl = (track.escape("image_url").match(/missing\.png$/) ? 
+		"blank_track.png" : track.escape("image_url")) %>
+
+	<img src="<%= imgUrl %>">
 	<div class="track-info-container">
 		<h2><%= track.escape('name') %></h2>
 		<p>Released By: <%= track.get("owner").username %></p>
