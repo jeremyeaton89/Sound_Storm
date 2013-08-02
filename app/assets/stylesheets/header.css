@@ -1,12 +1,6 @@
-.bump header{
-	margin-top: -20px;
-}
-
 header {
- 	/*margin: -8px -10px 0px -10px;*/
 	padding-top: 11px;
 	background-color: #3f3d3d;
-	/*border-bottom-radius: 1em; */
 	height: 40px;
 	font-family: sans-serif;
 	color: #ccc;
@@ -37,7 +31,6 @@ header {
 
 header ul {
 	position: absolute;
- 	/*margin-top: -10px;*/
 	top: -5px;
 }
 
