@@ -4,7 +4,9 @@
 		<% users.each(function(user) { %>
 
 			<div class="to-follow-widget">
-				<img src="<%= user.escape('profile_picture_url') %>">
+				<% var imgUrl = (user.escape('profile_picture_url').match(/missing\.png$/) ?
+				"blank_profile.gif" : user.escape('profile_picture_url')) %>
+				<img src="<%= imgUrl %>">
 				<span class="dashboard_follow_username"><%= user.escape("username") %></span>
 				<button class="follow" data-user-id="<%= user.id %>">Follow</button>
 			</div>

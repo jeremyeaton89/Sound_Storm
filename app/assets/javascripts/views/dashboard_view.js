@@ -150,7 +150,6 @@ SoundStorm.Views.DashboardView = Backbone.View.extend({
 	},
 	// add track to set
 	addSong: function(event) {
-		debugger
 		$(event.target).addClass("hidden");
 		$(event.target).siblings("button").removeClass("hidden");
 		var track = SoundStorm.currentUser.tracks.get($(event.target).closest(".widget").attr("data-track-id"));
@@ -163,7 +162,6 @@ SoundStorm.Views.DashboardView = Backbone.View.extend({
 				play_set_id: playSet.id
 			}},
 			success: function(response) {
-				debugger
 				playSet.tracks.add(track);
 			}
 		});	
