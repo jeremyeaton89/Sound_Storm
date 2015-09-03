@@ -9,6 +9,7 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 		"upload": "upload",
 		"profile": "profileComposite",
 		"profile/edit": "editProfile",
+		"profile/:id": "showProfile",
 		"tracks/:id/edit": "editTrack",
 		"tracks/:id": "showTrack",
 		"tracks": "showTracks",
@@ -45,6 +46,22 @@ SoundStorm.Routers.Router = Backbone.Router.extend({
 	editProfile: function() {
 		var profileEditView = new SoundStorm.Views.ProfileEditView({ model: this.user });
 		this.$rootEl.html(profileEditView.render().$el);
+	},
+
+	showProfile: function(id) {
+		var that = this;
+		$.ajax({
+			url: "/users/" + id,
+			type: "GET",
+			success: function(model, response) {
+				var user = new SoundStorm.Models.User(model)
+				var profileShowView = new SoundStorm.Views.ProfileShowView({
+					model: user
+				})
+				that.$rootEl.html(profileShowView.render().$el);
+			}
+
+		})
 	},
 
 	editTrack: function(id) {

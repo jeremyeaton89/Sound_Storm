@@ -1,5 +1,6 @@
 $(function() {
-	interval = window.setInterval();
+	// interval = window.setInterval();
+	var interval = undefined;
 
 	// Seeking
 	$("body").on("click", ".track .seeker-container", function(event) {
@@ -52,7 +53,7 @@ $(function() {
 	// Play Button
 	$("body").on("click", ".track .play-button", function() {
 		var $thisAudio = $(this).parent().siblings("audio");
-
+		
 		if ($(this).hasClass("play")) {
 			interval = window.clearInterval(interval);
 

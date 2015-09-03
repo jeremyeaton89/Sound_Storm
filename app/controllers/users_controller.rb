@@ -20,7 +20,10 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		respond_with current_user
+		# this may break something...
+		# respond_with current_user
+		
+		respond_with User.find(params[:id])
 	end
 
 	def index
